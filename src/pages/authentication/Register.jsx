@@ -1,33 +1,77 @@
-import React from "react";
-import gambar from "../../assets/img/2.jpeg";
+import React, { useState } from "react";
 import "../../scss/page/register.scss";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
+import Input from "../../components/atom/input";
+import InputPassword from "../../components/atom/inputPassword";
+import axios from "axios";
 
 const Register = () => {
-    
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const navigate = useNavigate()
+
+    const onHandleChange = (e) => {
+        if (e.target.name == "username") {
+            setUsername(e.target.value);
+        }
+        if (e.target.name == "email") {
+            setEmail(e.target.value);
+        }
+        if (e.target.name == "password") {
+            setPassword(e.target.value);
+        }
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const data = {
+            "username": username,
+            "email": email,
+            "password": password
+        }
+        
+        axios.post("http://localhost:3000/v1/auth/register",
+        data,
+        {headers: {'Content-Type': "application/json"}
+        }).then((response) => {
+            console.log(response.data);
+            navigate('/login');
+        }).catch((error) => {
+            const errorResponse = error.response.data.data;
+            console.log(errorResponse);
+        })
+    }
+
     return (
     <div className="register">
-        <div className="form-register">
+        <div className="form-register container">
             <h2 className="text-center">Register</h2>
-            <form action="" method="post" className="mb-5">
-                <div className="form-floating mb-3">
-                    <input type="text" className="form-control" id="floatingName" name="username" placeholder="username"/>
-                    <label htmlFor="floatingName">Username</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input type="email" className="form-control" id="floatingInput" name="email" placeholder="email@gmail.com"/>
-                    <label htmlFor="floatingInput">Email</label>
-                </div>
-                <div className="form-floating mb-3">
-                    <input type="password" className="form-control" id="floatingPassword" name="password" placeholder="password"/>
-                    <label htmlFor="floatingPassword">Password</label>
-                </div>
+            <form onSubmit={handleSubmit} className="mb-5">
+                <Input 
+                divClassName="mb-3 input"
+                type="text"
+                name="username"
+                placeholder="Username"
+                handleChange={onHandleChange}/>
+
+                <Input 
+                divClassName="mb-3 input"
+                type="email"
+                name="email"
+                placeholder="Email" 
+                handleChange={onHandleChange} />
+
+                <InputPassword 
+                className="mb-3 input" handleChange={onHandleChange} />
+
                 <div className="text-end">
-                <button type="submit" className="btn btn-primary">Register</button>
+                    <button type="submit" className="btn btn-primary form-btn">Register</button>
                 </div>
             </form>
-            <div className="text-center">
-                <Link to={'/login'}>Sudah memiliki akun? ---</Link>
+            <div className="link-center">
+                <Link to={'/login'}>already have an account?</Link>
             </div>
         </div>
     </div>

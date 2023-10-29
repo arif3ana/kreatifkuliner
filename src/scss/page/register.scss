@@ -1,19 +1,146 @@
-.register {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url("../../assets/img/2.jpeg");
-    background-size: cover;
-    background-position: center;
-    .form-register {
-        background-color: black;
-        height: 100vh;
-        width: 35vw;
-        padding: 1vw;
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
+@media screen and (max-width: $small_screen) {
+    .register {
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("../../assets/img/2.jpeg");
+        background-size: cover;
+        background-position: center;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        .text-center {
-            color: white;
-            margin-bottom: 5vw;
+        .form-register {
+            height: 100vh;
+            width: 100vw;
+            padding: 2vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                color: white;
+                font-size: 7vw;
+                margin-bottom: 5vw;
+            }
+            .input {
+                width: 85vw;
+            }
+            .link-center {
+                text-decoration: none;
+                font-size: 3.2vw;
+                
+            }
+            .form-btn {
+                font-size: 3.6vw;
+            }
         }
-    }
+    } 
+}
+
+@media screen and (min-width: $small_screen) {
+    .register {
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("../../assets/img/2.jpeg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .form-register {
+            height: 100vh;
+            width: 100vw;
+            padding: 2vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                color: white;
+                font-size: 5vw;
+                margin-bottom: 5vw;
+            }
+            .input {
+                width: 50vw;
+            }
+            .link-center {
+                text-decoration: none;
+                font-size: 2.3vw;
+                
+            }
+            .form-btn {
+                font-size: 2.6vw;
+            }
+        }
+    } 
+}
+
+@media screen and (min-width: $medium_screen) and (max-width: $large_screen) {
+    .register {
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("../../assets/img/2.jpeg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .form-register {
+            height: 100vh;
+            width: 100vw;
+            padding: 2vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                color: white;
+                font-size: 4.5vw;
+                margin-bottom: 5vw;
+            }
+            .input {
+                width: 50vw;
+            }
+            .link-center {
+                text-decoration: none;
+                font-size: 2.3vw;
+                
+            }
+            .form-btn {
+                font-size: 2.5vw;
+            }
+        }
+    } 
+}
+
+@media screen and (min-width: $large_screen) {
+    .register {
+        background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("../../assets/img/2.jpeg");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .form-register {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            h2 {
+                color: white;
+                font-size: 3.5vw;
+                margin-bottom: 5vw;
+            }
+            .input {
+                width: 40vw;
+            }
+            .link-center {
+                text-decoration: none;
+                font-size: 1.5vw;
+                
+            }
+            .form-btn {
+                font-size: 1.6vw;
+            }
+        }
+    } 
 }
