@@ -1,0 +1,82 @@
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+@media screen and (max-width: $small_screen) {
+    .card {
+        .card-image {
+            aspect-ratio:  3/2;
+            object-fit: cover;
+        }
+        .card-body {
+            .card-title {
+                font-size: 4.6vw;
+            }
+            .card-text {
+                font-size: 3.6vw;
+            }
+            .card-btn {
+                font-size: 3.6vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $small_screen) {
+    .card {
+        .card-image {
+            aspect-ratio:  3/2;
+            object-fit: cover;
+        }
+        .card-body {
+            .card-title {
+                font-size: 3.6vw;
+            }
+            .card-text {
+                font-size: 2.6vw;
+            }
+            .card-btn {
+                font-size: 2.6vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $medium_screen) {
+    .card {
+        .card-image {
+            aspect-ratio:  3/2;
+            object-fit: cover;
+        }
+        .card-body {
+            .card-title {
+                font-size: 3vw;
+            }
+            .card-text {
+                font-size: 2.5vw;
+            }
+            .card-btn {
+                font-size: 2.5vw;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $large_screen) {
+    .card {
+        .card-image {
+            aspect-ratio:  3/2;
+            object-fit: cover;
+        }
+        .card-body {
+            .card-title {
+                font-size: 2.3vw;
+            }
+            .card-text {
+                font-size: 1.8vw;
+            }
+            .card-btn {
+                font-size: 1.8vw;
+            }
+        }
+    }
+}

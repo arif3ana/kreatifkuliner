@@ -1,0 +1,25 @@
+$colorText: #7F8386;
+.nav {
+    border: 3px  solid #D3D3D3;
+    border-right: none;
+    border-left: none;
+    display: flex;
+    justify-content: center;
+    .list-link {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 2vw;
+        width: 20vw;
+        .link {
+            color: $colorText;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.5s;
+            &:hover {
+                color: #585858;
+            }
+        }
+    }
+}

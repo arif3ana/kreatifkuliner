@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+$color: #ededed;
+$colorText: #7F8386;
+$mainColorText: #F6F6F6;
+$fontJudul: 'Julius Sans One', sans-serif;
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+
+//Small screen 
+@media screen and (max-width: $small_screen) {
+    .navbar {
+        background-color: $color;
+        width: auto;
+        padding: 40px;
+        .navbar-text {
+            font-family: $fontJudul;
+            font-size: 4.5vw;
+        }
+        .auth-list {
+            width: auto;
+            display: flex;
+            justify-content: end;
+            gap: 7vw;
+            font-size: 3.6vw;
+        }
+    }
+
+    
+    .carousel {
+        .carousel-inner {
+            background-image: linear-gradient(
+                rgba(0,0,0,0.5), 
+                rgba(0,0,0,0.8)), 
+                url("../../assets/img/hero.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            .carousel-item {
+                .hero {
+                    height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .header-tagline {
+                        color: white;
+                        width: 80%;
+                
+                        h1 {
+                            font-family: $fontJudul;
+                            font-size: 9.3vw;
+                        }
+                        p {
+                            font-family: inherit;
+                            font-size: 3.6vw;
+                        }
+                    }
+                }
+            }
+        }
+        .carousel-control-prev {
+            display: none ;
+        }
+        .carousel-control-next {
+            display: none ;
+        }
+    }
+}
+
+// small screen potrait
+@media screen and (min-width: $small_screen) { 
+    .navbar {
+        background-color: $color;
+        width: auto;
+        padding: 40px;
+        .navbar-text {
+            font-family: $fontJudul;
+            font-size: 3vw;
+        }
+        .auth-list {
+            width: auto;
+            display: flex;
+            justify-content: end;
+            gap: 7vw;
+            font-size: 2.5vw;
+        }
+    }
+
+    .carousel {
+        .carousel-inner {
+            background-image: linear-gradient(
+                rgba(0,0,0,0.5), 
+                rgba(0,0,0,0.8)), 
+                url("../../assets/img/hero.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            .carousel-item {
+                .hero {
+                    height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .header-tagline {
+                        color: white;
+                        width: 80%;
+                
+                        h1 {
+                            font-family: $fontJudul;
+                            font-size: 7vw;
+                        }
+                        p {
+                            font-family: inherit;
+                            font-size: 2.5vw;
+                        }
+                    }
+                }
+            }
+        }
+        .carousel-control-prev {
+            display: none ;
+        }
+        .carousel-control-next {
+            display: none ;
+        }
+    }
+}
+
+// medium screen
+@media screen and (min-width: $medium_screen) { 
+    .navbar {
+        background-color: $color;
+        width: auto;
+        padding: 40px;
+        .navbar-text {
+            font-family: $fontJudul;
+            font-size: 3vw;
+        }
+        .auth-list {
+            width: auto;
+            display: flex;
+            justify-content: end;
+            gap: 7vw;
+            font-size: 2.5vw;
+        }
+    }
+
+    .carousel {
+        .carousel-inner {
+            background-image: linear-gradient(
+                rgba(0,0,0,0.5), 
+                rgba(0,0,0,0.8)), 
+                url("../../assets/img/hero.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            .carousel-item {
+                .hero {
+                    height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .header-tagline {
+                        color: white;
+                        width: 80%;
+                
+                        h1 {
+                            font-family: $fontJudul;
+                            font-size: 6vw;
+                        }
+                        p {
+                            font-family: inherit;
+                            font-size: 2.5vw;
+                        }
+                    }
+                }
+            }
+        }
+        .carousel-control-prev {
+            display: none ;
+        }
+        .carousel-control-next {
+            display: none ;
+        }
+    }
+}
+
+// large screen
+@media screen and (min-width: $large_screen) { 
+    .navbar {
+        background-color: $color;
+        width: auto;
+        padding: 40px;
+        .navbar-text {
+            font-family: $fontJudul;
+            font-size: 2.7vw;
+        }
+        .auth-list {
+            width: auto;
+            display: flex;
+            justify-content: end;
+            gap: 7vw;
+            font-size: 1.8vw;
+        }
+    }
+
+    .carousel {
+        .carousel-inner {
+            background-image: linear-gradient(
+                rgba(0,0,0,0.5), 
+                rgba(0,0,0,0.8)), 
+                url("../../assets/img/hero.jpeg");
+            background-size: cover;
+            background-position: center;
+            height: 89vh;
+            .carousel-item {
+                .hero {
+                    height: 89vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    .header-tagline {
+                        color: white;
+                        width: 80%;
+                
+                        h1 {
+                            font-family: $fontJudul;
+                            font-size: 5vw;
+                        }
+                        p {
+                            font-family: inherit;
+                            font-size: 1.8vw;
+                        }
+                    }
+                }
+            }
+        }
+        .carousel-control-prev {
+            display: none ;
+        }
+        .carousel-control-next {
+            display: none ;
+        }
+    }
+}
