@@ -9,7 +9,7 @@ export const setFoodData = createAsyncThunk(
             return response.data
         })
         .catch((error) => {
-            data = error;
+            data = error; // perbaikan
         })
     }
 )
@@ -40,20 +40,4 @@ const firstPageReducer = createSlice({
 })
 
 export default firstPageReducer;
-
-// const initialState = {
-//     foodData: [],
-// }
-
-
-// const firstPageReducer = (state = initialState, action) => {
-    //     if(action.type === "SET_FOOD_DATA") {
-        //         return {
-            //             ...state,
-            //             foodData: action.payload
-            //         }
-            //     }
-            //     return state;
-            // }
-
 

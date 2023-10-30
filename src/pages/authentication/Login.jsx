@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import "../../scss/page/login.scss";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Input from "../../components/atom/input";
 import InputPassword from "../../components/atom/inputPassword";
-import axios from "axios";
+import "../../scss/page/login.scss";
+import { userLogin } from "../../utils/reducer/loginReducer";
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const onHandleChange = (e) => {
         if(e.target.name == "email") {
@@ -19,27 +21,30 @@ const Login = () => {
         }
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const reqData = {
             "email": email,
             "password": password
         }
+        await dispatch(userLogin({reqData}))
 
-        axios.post("http://localhost:3000/v1/auth/login",
-        reqData,
-        {
-            headers: {"Content-Type": "application/json"}
-        }).then((response) => {
-            const dataRes = response.data;
-            document.cookie = `accessToken=${dataRes.accessToken}; max-age=${60 * 60}; path=/dashboard; SameSite=Strict`;
-            document.cookie = `refreshToken=${dataRes.refreshToken}; max-age=${86400}; path=/dashboard; SameSite=Strict`;
-            navigate('/dashboard')
-        }).catch((error) => {
-            console.log(error);
-        })
+        // setEmail('')
+        // setPassword('')
     }
+
+    const {loginData} = useSelector((state) => state.login);
+    console.log(loginData);
+    if (loginData.message === "login Success!!") {
+        navigate('/dashboard');
+    }
+
+    if (loginData.msg === "Password anda tidak valid" || loginData.msg === "Email atau Password salah!!") {
+        console.log(loginData.msg);
+    }
+
+    // PR notif error belum ada // kesalahan
     return (
         <div className="login">
         <div className="form-login">

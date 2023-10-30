@@ -1,24 +1,24 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { homeContent } from "../../utils/reducer/homeReducer";
 
 const Home = () => {
-    const cookies = document.cookie.split(';');
-    const accessToken = cookies.find((cookie) => cookie.startsWith("accessToken="))?.split('=')[1];
-    const refreshToken = cookies.find((cookie) => cookie.startsWith(" refreshToken="));
+    const dispatch = useDispatch();
 
-    console.log(accessToken);
-    console.log(refreshToken);
-    axios.get("http://localhost:3000/v1/user/food", {
-        headers: {
-            "Authorization": `Bearer ${accessToken}`,
-            "Cookie": refreshToken,
-            "Content-Type": "application/json"
-        }
-    }).then((response) => {
-        console.log(response);
-    }).catch((error) => {
-        console.log(error);
-    })
+    const cookies = document.cookie.split(';');
+    const token = cookies.find((cookie) => cookie.startsWith("accessToken="))?.split('=')[1];
+    const {loginData} = useSelector((state) => state.login);
+    
+    const accessToken = loginData.accessToken || token
+
+    useEffect(() => {
+        dispatch(homeContent({accessToken}))
+    }, [])
+
+    const {homeData} = useSelector((state) => state.home);
+    console.log(homeData);
+
     return <h1>Halllo everynyan</h1>
 }
 export default Home;

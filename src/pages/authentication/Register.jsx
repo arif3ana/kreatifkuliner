@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import "../../scss/page/register.scss";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/atom/input";
 import InputPassword from "../../components/atom/inputPassword";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../../utils/reducer/registerReducer";
+import "../../scss/page/register.scss";
 
-const Register = () => {
+const Register = (props) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
+    const dispatch = useDispatch();
 
     const onHandleChange = (e) => {
         if (e.target.name == "username") {
@@ -23,31 +25,34 @@ const Register = () => {
         }
     }
 
-    const handleSubmit = (e) => {
+    // menggunakan use Effec untuk mengambil data di useSelector
+    const handleSubmit = async (e) => {
         e.preventDefault();
-
         const data = {
             "username": username,
             "email": email,
             "password": password
         }
-        
-        axios.post("http://localhost:3000/v1/auth/register",
-        data,
-        {headers: {'Content-Type': "application/json"}
-        }).then((response) => {
-            console.log(response.data);
-            navigate('/login');
-        }).catch((error) => {
-            const errorResponse = error.response.data.data;
-            console.log(errorResponse);
-        })
+
+        await dispatch(userRegister({data}));
+    }
+
+    const {userData} = useSelector((state) => state.register);
+    
+    if (userData === "Register Success!!") {
+        navigate('/login');
+    }
+
+    if (userData === "Input tidak valid") {
+        console.log(userData);
     }
 
     return (
     <div className="register">
         <div className="form-register container">
             <h2 className="text-center">Register</h2>
+            {/* <p className="invalid-feedback">{userData}</p> */}
+            {/* Pr notif error belum ada */}
             <form onSubmit={handleSubmit} className="mb-5">
                 <Input 
                 divClassName="mb-3 input"
