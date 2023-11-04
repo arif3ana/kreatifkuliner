@@ -1,27 +1,26 @@
 import React from "react";
 
-const Input = 
+const InputTextarea = 
 ({
-    type, 
     className, 
     name, 
     divClassName, 
-    placeholder, 
+    placeholder,
+    row, 
     handleChange,
     ...rest
 }) => {
     return (
     <div className={divClassName}>
-        <input 
-        type={type}
+        <textarea 
         className={`form-control ${className}`} 
+        placeholder={placeholder}
         name={name}
-        placeholder={placeholder} 
         onChange={handleChange}
-        {...rest}/>
-        
+        rows={row}
+        {...rest} />
     </div>
     )
 }
 
-export default Input;
+export default InputTextarea;

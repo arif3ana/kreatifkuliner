@@ -1,24 +1,150 @@
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
 $colorText: #7F8386;
-.nav {
-    border: 3px  solid #D3D3D3;
-    border-right: none;
-    border-left: none;
-    display: flex;
-    justify-content: center;
-    .list-link {
+
+@media screen and (max-width: $small_screen) {
+    .nav {
+        border: 3px  solid #D3D3D3;
+        background-color: white;
+        border-right: none;
+        border-left: none;
         display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        font-size: 2vw;
-        width: 20vw;
-        .link {
-            color: $colorText;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.5s;
-            &:hover {
-                color: #585858;
+        justify-content: center;
+        .list-link {
+            display: flex;
+            justify-content: center;
+            gap: 4vw;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 4vw;
+            width: 100%;
+            .link {
+                color: $colorText;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 0.5s;
+                &:hover {
+                    color: #585858;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $small_screen) {
+    .nav {
+        border: 3px  solid #D3D3D3;
+        background-color: white;
+        border-right: none;
+        border-left: none;
+        display: flex;
+        justify-content: center;
+        .list-link {
+            display: flex;
+            justify-content: center;
+            gap: 4vw;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 3.2vw;
+            width: 100%;
+            .link {
+                color: $colorText;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 0.5s;
+                &:hover {
+                    color: #585858;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $medium_screen) {
+    .nav {
+        border: 3px  solid #D3D3D3;
+        background-color: white;
+        border-right: none;
+        border-left: none;
+        display: flex;
+        justify-content: center;
+        .list-link {
+            display: flex;
+            justify-content: center;
+            gap: 4vw;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 2.8vw;
+            width: 100%;
+            .link {
+                color: $colorText;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 0.5s;
+                &:hover {
+                    color: #585858;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $large_screen) {
+    .nav {
+        border: 3px  solid #D3D3D3;
+        background-color: white;
+        border-right: none;
+        border-left: none;
+        display: flex;
+        justify-content: center;
+        .list-link {
+            display: flex;
+            justify-content: center;
+            gap: 4vw;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 1.9vw;
+            width: 100%;
+            .link {
+                color: $colorText;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 0.5s;
+                &:hover {
+                    color: #585858;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $larger_screen) {
+    .nav {
+        border: 3px  solid #D3D3D3;
+        background-color: white;
+        border-right: none;
+        border-left: none;
+        display: flex;
+        justify-content: center;
+        .list-link {
+            display: flex;
+            justify-content: center;
+            gap: 4vw;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 2vw;
+            width: 100%;
+            .link {
+                color: $colorText;
+                text-decoration: none;
+                font-weight: 500;
+                transition: 0.5s;
+                &:hover {
+                    color: #585858;
+                }
             }
         }
     }

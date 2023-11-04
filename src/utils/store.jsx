@@ -3,6 +3,7 @@ import firstPageReducer from "./reducer/firstPageReducer";
 import registerReducer from "./reducer/registerReducer";
 import loginReducer from "./reducer/loginReducer";
 import homeReducer from "./reducer/homeReducer";
+import myrecipeReducer from "./reducer/myrecipeReducer";
 
 
 const store = configureStore({
@@ -10,7 +11,8 @@ const store = configureStore({
         food: firstPageReducer.reducer,
         register: registerReducer.reducer,
         login: loginReducer.reducer,
-        home: homeReducer.reducer
+        home: homeReducer.reducer,
+        myrecipe: myrecipeReducer.reducer
     }
 });
 

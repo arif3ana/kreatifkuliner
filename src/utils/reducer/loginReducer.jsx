@@ -1,18 +1,18 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+import Cookies from "js-cookie";
 export const userLogin = createAsyncThunk(
     "login/userLogin",
     async ({thunkAPI, reqData}) => {
         return await axios.post("http://localhost:3000/v1/auth/login",
         reqData,
         {
+            withCredentials: true,
             headers: {"Content-Type": "application/json"}
         }).then((response) => {
             const dataRes = response.data;
-            document.cookie = `accessToken=${dataRes.accessToken}; max-age=${60 * 60}; path=/dashboard; SameSite=Strict`;
-            document.cookie = `refreshToken=${dataRes.refreshToken}; max-age=${86400}; path=/dashboard; SameSite=Strict`;
-            
+            const access = response.headers.authorization;
+            Cookies.set("accessToken", access, {path: '/', expires: new Date(Date.now() + 5 * 60 * 1000)});
             return dataRes;
         }).catch((error) => {
             return error.response.data;

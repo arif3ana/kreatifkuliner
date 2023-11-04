@@ -1,0 +1,58 @@
+
+.add-recipe {
+    margin-bottom: 15vh;
+    margin-top: 1vh;
+    .main-post {
+        border: 1px solid black;
+        border-radius: 2vw;
+        padding: 2vw;
+        margin-bottom: 2vw;
+        .main-image {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2vw;
+            .preview {
+                img {
+                    width: 50%;
+                    aspect-ratio:  6/4;
+                    object-fit: cover;
+                    border-radius: 2vw;
+                }
+                text-align: center;
+            }
+        }
+    }
+
+    .second-post {
+        border: 1px solid black;
+        border-radius: 2vw;
+        padding: 2vw;
+        .input-recipe {
+            display: flex;
+            flex-direction: column;
+            gap: 1vw;
+            margin-top: 2vw;
+
+            .ingredients {
+                .oprator-ingredient {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.5vw;
+                    justify-content: flex-end;
+
+                }
+            }
+
+            .instructions {
+                .oprator-instruction {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 0.5vw;
+                    justify-content: flex-end;
+                }
+            }
+        }
+    }
+
+
+}

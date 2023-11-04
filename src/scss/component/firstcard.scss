@@ -15,7 +15,11 @@ $large_screen: 992px;
                 font-size: 3.6vw;
             }
             .card-btn {
-                font-size: 3.6vw;
+                .btn {
+                    font-size: 3.6vw;
+                }
+                width: 100%;
+                text-align: end;
             }
         }
     }
@@ -35,7 +39,11 @@ $large_screen: 992px;
                 font-size: 2.6vw;
             }
             .card-btn {
-                font-size: 2.6vw;
+                .btn {
+                    font-size: 2.6vw;
+                }
+                width: 100%;
+                text-align: end;
             }
         }
     }
@@ -55,7 +63,11 @@ $large_screen: 992px;
                 font-size: 2.5vw;
             }
             .card-btn {
-                font-size: 2.5vw;
+                .btn {
+                    font-size: 2.5vw;
+                }
+                width: 100%;
+                text-align: end;
             }
         }
     }
@@ -75,7 +87,11 @@ $large_screen: 992px;
                 font-size: 1.8vw;
             }
             .card-btn {
-                font-size: 1.8vw;
+                .btn {
+                    font-size: 1.8vw;
+                }
+                width: 100%;
+                text-align: end;
             }
         }
     }

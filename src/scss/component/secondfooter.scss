@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+$fontJudul: 'Julius Sans One', sans-serif;
+
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
+@media screen and (max-width: $small_screen) {
+    .second-footer {
+        background-color: black;
+        .container {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 3vw;
+            .web-name {
+                font-family: $fontJudul;
+                font-size: 5vw;
+            }
+            p {
+                font-size: 4vw;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $small_screen) {
+    .second-footer {
+        background-color: black;
+        .container {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 2vw;
+            .web-name {
+                font-family: $fontJudul;
+                font-size: 4vw;
+            }
+            p {
+                font-size: 3.2vw;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $medium_screen) {
+    .second-footer {
+        background-color: black;
+        .container {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 2vw;
+            .web-name {
+                font-family: $fontJudul;
+                font-size: 3vw;
+            }
+            p {
+                font-size: 2.8vw;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $large_screen) {
+    .second-footer {
+        background-color: black;
+        .container {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 1.5vw;
+            .web-name {
+                font-family: $fontJudul;
+                font-size: 2vw;
+            }
+            p {
+                font-size: 1.9vw;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $larger_screen) {
+    .second-footer {
+        background-color: black;
+        .container {
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 1.5vw;
+            .web-name {
+                font-family: $fontJudul;
+                font-size: 2.5vw;
+            }
+            p {
+                font-size: 2vw;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+// .second-footer {
+//     background-color: black;
+//     .container {
+//         color: white;
+//         display: flex;
+//         justify-content: space-between;
+//         margin-top: 2vw;
+//         .web-name {
+//             font-family: $fontJudul;
+//             font-size: 2vw;
+//         }
+//     }
+// }

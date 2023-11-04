@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Input from "../../components/atom/input";
 import InputPassword from "../../components/atom/inputPassword";
@@ -31,13 +31,13 @@ const Login = () => {
         await dispatch(userLogin({reqData}))
 
         // setEmail('')
-        // setPassword('')
+        // setPassword('')  // handlle kesalahan input
     }
 
     const {loginData} = useSelector((state) => state.login);
-    console.log(loginData);
     if (loginData.message === "login Success!!") {
         navigate('/dashboard');
+        localStorage.setItem('USER', JSON.stringify(loginData.data));
     }
 
     if (loginData.msg === "Password anda tidak valid" || loginData.msg === "Email atau Password salah!!") {

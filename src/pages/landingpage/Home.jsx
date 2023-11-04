@@ -37,7 +37,8 @@ const Home = () => {
                     title={food.name} 
                     image={`http://localhost:3000/${food.image}`} 
                     description={food.description}
-                    date={food.createdAt} />
+                    date={food.createdAt} 
+                    id={food._id} />
                 ))}
             </div>
             <div className="text-center mt-5">

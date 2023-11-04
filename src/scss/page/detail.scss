@@ -1,0 +1,11 @@
+
+.detail-recipe {
+    margin-bottom: 15vh;
+    margin-top: 1vh;
+    .img-detail {
+        width: 100%;
+        aspect-ratio:  5/2;
+        object-fit: cover;
+        border-radius: 2vw;
+    }
+}

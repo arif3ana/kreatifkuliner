@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
    return (
-    <div className="container">
+    <div className="sticky-top">
       <nav className="nav justify-content-center">
-        <div className='list-link'>
-          <Link to="/" className='link' >Home</Link>
-          <Link to="/foods"className='link' >Foods</Link>
+        <div className='list-link container'>
+          <Link to="/dashboard" className='link' >Home</Link>
+          <Link to="/dashboard/myrecipe"className='link' >My Recipe</Link>
+          <Link to="/dashboard/add"className='link' >Add Recipe</Link>
         </div>
       </nav>
     </div>

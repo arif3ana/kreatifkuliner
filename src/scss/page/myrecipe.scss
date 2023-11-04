@@ -1,0 +1,96 @@
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
+@media screen and (max-width: $small_screen) {
+    .card-recipe {
+        margin-bottom: 10vh;
+        margin-top: 1vh;
+        .recipe-content {
+            border: none;
+            margin-bottom: 2.5vw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .card-image {
+                width: 100%;
+                aspect-ratio:  4/2;
+                object-fit: cover;
+                border-radius: 3vw;
+            }   
+        }
+    } 
+}
+
+@media screen and (min-width: $small_screen) {
+    .card-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .recipe-content {
+            border: none;
+            margin-bottom: 2.5vw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .card-image {
+                width: 100%;
+                aspect-ratio:  4/2;
+                object-fit: cover;
+                border-radius: 3vw;
+            }   
+        }
+    } 
+}
+
+@media screen and (min-width: $medium_screen) {
+    .card-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .recipe-content {
+            border: none;
+            margin-bottom: 2.5vw;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            .card-image {
+                width: 40%;
+                border-radius: 2vw;
+            }   
+        }
+    } 
+}
+
+@media screen and (min-width: $large_screen) {
+    .card-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .recipe-content {
+            border: none;
+            margin-bottom: 2.5vw;
+            display: flex;
+            flex-direction: row;    
+            .card-image {
+                width: 40%;
+                border-radius: 2vw;
+            }   
+        }
+    } 
+}
+
+@media screen and (min-width: $larger_screen) {
+    .card-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .recipe-content {
+            border: none;
+            margin-bottom: 2.5vw;
+            display: flex;
+            flex-direction: row;    
+            .card-image {
+                width: 40%;
+                border-radius: 2vw;
+            }   
+        }
+    } 
+}
