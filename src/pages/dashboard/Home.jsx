@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { homeContent } from "../../utils/reducer/homeReducer";
+import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import FirstCard from "../../components/firstCard";
-import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
 import "../../scss/page/dashboardhome.scss";
 
 const Home = () => {
@@ -26,7 +26,7 @@ const Home = () => {
         } else {
             setTimeout(() => {
                 dispatch(homeContent({access}))
-            }, 1000);
+            }, 500);
         }
         
 
@@ -36,12 +36,32 @@ const Home = () => {
     }, [])
 
     const {homeData} = useSelector((state) => state.home);
-    return (
+    const [searchTerm, setSearchTerm] = useState('');
+    const [data, setData] = useState(homeData);
+
+    useEffect(() => {
+        setData(homeData)
+    }, [homeData]);
+
+    const onSearch = (e) => {
+        const search = e.target.value;
+        setSearchTerm(search)
+
+        const result = homeData.filter((recipe) => recipe.name.toLowerCase().includes(search.toLowerCase()));
+        setData(result);
+    }
+
     
+
+    return (
         <>
         <Navbar />
+        <div className="container w-50 search-form input-group mb-5 mt-3">
+            <input type="text" className="form-control" placeholder="Search Recipe . . . " aria-label="Username" aria-describedby="basic-addon1" onChange={onSearch} value={searchTerm}/>
+            <span className="input-group-text" id="basic-addon1"><i className="bi bi-search" /></span>
+        </div>
         <div className="container home-content">
-            {!homeData.msg ? homeData.map(data => (
+            {!data.msg ? data.map(data => (
                 <FirstCard 
                 className="home-card"
                 key={data._id}
@@ -51,7 +71,7 @@ const Home = () => {
                 description={data.description}
                 date={data.createdAt}
                 id={data._id} />
-            )) : <p>{homeData.msg}</p>}
+            )) : <p>{data.msg}</p>}
         </div>
         <SecondFooter />
         </>

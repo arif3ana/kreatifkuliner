@@ -23,7 +23,7 @@ const Myrecipe = () => {
         } else {
             setTimeout(() => {
                 dispatch(recipeContent({userId}))
-            }, 1000)
+            }, 500)
         }
         
         !refresh ? null : Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
