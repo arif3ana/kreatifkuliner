@@ -36,7 +36,6 @@ const Home = () => {
     }, [])
 
     const {homeData} = useSelector((state) => state.home);
-    console.log(homeData);
     return (
     
         <>

@@ -4,12 +4,8 @@ import { Link } from "react-router-dom";
 import {recipeDelete} from "../utils/reducer/myrecipeReducer";
 import { useDispatch } from "react-redux";
 const FirstCard = (props) => {
-    const { className, alt, image, title, date, description, id } = props;
+    const { className, alt, image, title, date, description, id, handleDelete } = props;
     const dispatch = useDispatch();
-        
-    function onDelete(id) {
-       dispatch(recipeDelete({id}))
-    }
 
     return (
         <div className={`card ${className}`}>
@@ -22,8 +18,8 @@ const FirstCard = (props) => {
                     {
                     location.pathname == "/dashboard/myrecipe" ? (
                         <>
-                            <a href="#" className="btn btn-link">Edit</a>
-                            <button onClick={() => onDelete(id)} className="btn btn-link">Delete</button>
+                            <Link to={`/dashboard/edit/${id}`} className="btn btn-link">Edit</Link>
+                            <button onClick={handleDelete} className="btn btn-link">Delete</button>
                         </>
                     ) : null 
                     }

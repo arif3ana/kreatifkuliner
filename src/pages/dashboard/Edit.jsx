@@ -5,27 +5,30 @@ import Input from "../../components/atom/input";
 import InputTextarea from "../../components/atom/inputTextarea";
 import "../../scss/page/add.scss";
 import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Add = () => {
-    const [imagePreview, setImagePreview] = useState(null);
+const Edit = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const { myData } = useSelector((state) => state.myrecipe);
+    const dataUpdate = myData.filter((data) => data._id === id);
+
+    const [imagePreview, setImagePreview] = useState({
+        strImage: dataUpdate[0].image,
+        image: null,
+    });
     const [message, setMessage] = useState('');
     const [errorMsg, setErrorMsg] = useState();
+
     // state untuk menghandle form
     const [formState, setFormState] = useState({
-        name: '',
-        description: '',
-        image: null, // Gunakan ini untuk menyimpan file image
-        ingredients: [''], // Data awalnya satu elemen kosong
-        instructions: [{ img: null, step: '' }] // Data awalnya satu objek dengan img null dan step kosong
-    });
-
-    const initialStateClear = {
-        name: '',
-        description: '',
+        name: dataUpdate[0].name,
+        description: dataUpdate[0].description,
         image: null,
-        ingredients: [''],
-        instructions: [{ img: null, step: '' }]
-    }
+        ingredients: dataUpdate[0].ingredients,
+        instructions: [...dataUpdate[0].instructions]
+    });
 
     const handleImage = (e) => {
         e.preventDefault();
@@ -35,7 +38,7 @@ const Add = () => {
 
         reader.onloadend = () => {
             const imageData = reader.result;
-            setImagePreview(imageData)
+            setImagePreview({image: imageData})
         }
 
         if (file) {
@@ -98,7 +101,7 @@ const Add = () => {
         setFormState({ ...formState, instructions: list });
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e, id) => {
         e.preventDefault()
         const formData = new FormData();
         formData.append('name', formState.name);
@@ -115,15 +118,17 @@ const Add = () => {
         })
 
         try {
-            const res = await axios.post('http://localhost:3000/v1/user/food/add-food', formData, {
+            const res = await axios.put(`http://localhost:3000/v1/user/food/update/${id}`, formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
             setMessage(res.data.message);
-            setFormState(initialStateClear);
-            setImagePreview(null)
+            
+            setTimeout(() => {
+                navigate('/dashboard/myrecipe');
+            }, 1000)
         } catch (error) {
             setErrorMsg(error.response.data.data);
         }
@@ -134,13 +139,14 @@ const Add = () => {
             <Navbar />
             <div className="container add-recipe">
                 {
-                message && (
-                <div className="alert alert-success sticky-top alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {message}
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-                )
+                    message && (
+                    <div className="alert alert-success sticky-top alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> {message}
+                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    )
                 }
+
                 {
                 errorMsg && (
                 <div className="alert alert-danger sticky-top alert-dismissible fade show" role="alert">
@@ -153,19 +159,20 @@ const Add = () => {
                 </div>
                 )
                 }
-                <form className="mt-3" onSubmit={handleSubmit}>
+
+                <form className="mt-3" onSubmit={(e) => handleSubmit(e, id)}>
                     <div className="main-post">
                         <h2 className="mb-4">01 ~ Food Name & Description</h2>
                         {/* input main image */}
                         <div className="main-image mb-3">
                             <div className="input-group">
                             <label className="input-group-text" htmlFor="inputGroupFile01">Image</label>
-                                <input className="form-control" id="inputGroupFile01" type="file" name="image" required onChange={handleImage}/>
+                                <input className="form-control" id="inputGroupFile01" type="file" name="image" onChange={handleImage}/>
                             </div>
                             <div className="preview">
-                                {imagePreview && (
-                                    <img src={imagePreview} alt="preview image" />
-                                )}
+                                {imagePreview.image != null ? (
+                                    <img src={imagePreview.image} alt="preview image" />
+                                ) : (<img src={`http://localhost:3000/${imagePreview.strImage}`} alt="preview image" />)}
                             </div>
                         </div>
 
@@ -221,6 +228,9 @@ const Add = () => {
                                 <ol>
                                     {formState.instructions.map((instruc, index) => (
                                     <li key={index} className="mb-3">
+                                    {instruc.img === null ? null : (
+                                        <img src={ typeof instruc.img == "string" ? `http://localhost:3000/${instruc.img}` : instruc.img} alt="preview image" />
+                                    )}
                                     <div className="input-group">
                                         <label className="input-group-text" htmlFor="inputGroupFile02">Image</label>
                                         <input className="form-control" id="inputGroupFile02" type="file" name="instructions[]" onChange={(e) => onHandleChange(e, index, 'img')}/>
@@ -252,4 +262,4 @@ const Add = () => {
     )
 }
 
-export default Add;
+export default Edit;

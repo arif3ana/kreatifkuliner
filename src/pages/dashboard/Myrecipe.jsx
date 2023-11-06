@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { recipeContent } from "../../utils/reducer/myrecipeReducer";
+import { recipeContent, recipeDelete } from "../../utils/reducer/myrecipeReducer";
 import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
@@ -27,10 +27,14 @@ const Myrecipe = () => {
         }
         
         !refresh ? null : Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
-    }, [])
+    }, [onDelete])
+
+            
+    function onDelete(id) {
+       dispatch(recipeDelete({id}))
+    }
 
     const { myData } = useSelector((state) => state.myrecipe);
-    console.log(myData);
 
 
     return (
@@ -46,7 +50,8 @@ const Myrecipe = () => {
                     image={`http://localhost:3000/${recipe.image}`} 
                     description={recipe.description}
                     date={recipe.createdAt}
-                    id={recipe._id} />
+                    id={recipe._id} 
+                    handleDelete={() => onDelete(recipe._id)} />
                 )) : <p>{myData.msg}</p> }
             </div>
         <SecondFooter />
