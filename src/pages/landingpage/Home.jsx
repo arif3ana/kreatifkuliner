@@ -6,6 +6,7 @@ import Header from "../../layouts/Header";
 import "../../scss/page/home.scss";
 import Footer from "../../layouts/Footer";
 import { Link } from "react-router-dom";
+import Loader from "../../components/atom/loader";
 
 const Home = () => {
     const dispatch = useDispatch()
@@ -14,12 +15,6 @@ const Home = () => {
     }, [dispatch])
 
     const {foodData, isLoading, error} = useSelector((state) => state.food);
-    if (isLoading) {
-        return <p className="container">loading...</p>
-    }
-    if (error) {
-       return <p className="container">loading...</p>
-    }
     
     return (
         <>
@@ -29,13 +24,15 @@ const Home = () => {
                 <h2 className="mb-3">Blog Kuliner Baru</h2>
                 <p>Membuat makanan yang lezat dan memuaskan bisa sangat menyenangkan!</p>
             </div>
+            {error && (<div className="container text-center"><p className="text-body-secondary">{error}</p></div>)}
+            {isLoading && (<div className="container text-center"><Loader /></div>)}
             <div className="card-content">
                 {foodData.map((food) => (
                     <FirstCard 
                     key={food._id}
                     alt={food.name} 
                     title={food.name} 
-                    image={`http://localhost:3000/${food.image}`} 
+                    image={`${import.meta.env.VITE_APP_BASE_URL}/${food.image}`} 
                     description={food.description}
                     date={food.createdAt} 
                     id={food._id} />

@@ -4,7 +4,7 @@ import axios from "axios";
 export const homeContent = createAsyncThunk(
     'home/homeContent',
     async({thunkAPI, accessToken}) => {
-        return await axios.get("http://localhost:3000/v1/user/food", {
+        return await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food`, {
             withCredentials: true,
         }).then((response) => {
             return response.data;
@@ -17,12 +17,17 @@ export const homeContent = createAsyncThunk(
 const homeReducer = createSlice({
     name: "home",
     initialState: {
-        homeData: []
+        homeData: [],
+        isLoading: false
     },
     reducers: {},
     extraReducers: (builder) => {
+        builder.addCase(homeContent.pending, (state) => {
+            state.isLoading = true
+        })
         builder.addCase(homeContent.fulfilled, (state, action) => {
             state.homeData = action.payload.data
+            state.isLoading = false
         })
     }
 })

@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import { Link, json, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { userLogin } from "../../utils/reducer/loginReducer";
 import Input from "../../components/atom/input";
 import InputPassword from "../../components/atom/inputPassword";
+import Loader from "../../components/atom/loader";
+import  Alert from '../../components/atom/alert';
 import "../../scss/page/login.scss";
-import { userLogin } from "../../utils/reducer/loginReducer";
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -28,26 +30,37 @@ const Login = () => {
             "email": email,
             "password": password
         }
-        await dispatch(userLogin({reqData}))
-
-        // setEmail('')
-        // setPassword('')  // handlle kesalahan input
+        await dispatch(userLogin(reqData))
     }
 
-    const {loginData} = useSelector((state) => state.login);
-    if (loginData.message === "login Success!!") {
-        navigate('/dashboard');
-        localStorage.setItem('USER', JSON.stringify(loginData.data));
-    }
+    const {loginData, err, isLoading} = useSelector((state) => state.login);
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
 
-    if (loginData.msg === "Password anda tidak valid" || loginData.msg === "Email atau Password salah!!") {
-        console.log(loginData.msg);
-    }
+    useEffect(() => {
+        if (err) {
+            setError(err);
+        }
 
-    // PR notif error belum ada // kesalahan
+        setMessage(loginData.message);
+        if (message === "login Success!!") {
+            localStorage.setItem('USER', JSON.stringify(loginData.data));
+            setTimeout(() => navigate('/dashboard'), 1000);
+        }
+    }, [handleSubmit])
+
     return (
         <div className="login">
+        {isLoading && (<div className="loader-box"><Loader /></div>)}
         <div className="form-login">
+            {
+                error && (
+                <Alert 
+                type={'danger'}
+                messageType={'Failed!'}
+                mainMessage={error} />
+                )
+            }
             <h2 className="text-center">Log in</h2>
             <form onSubmit={handleSubmit} className="mb-5">
                 <Input 

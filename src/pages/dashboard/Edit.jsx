@@ -1,16 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import axios from "axios";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import Input from "../../components/atom/input";
 import InputTextarea from "../../components/atom/inputTextarea";
-import "../../scss/page/add.scss";
-import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-import { useSelector } from "react-redux";
+import Alert from "../../components/atom/alert";
+import Loader from "../../components/atom/loader";
+import "../../scss/page/edit.scss";
 
 const Edit = () => {
     const { id } = useParams();
     const navigate = useNavigate();
+    const [message, setMessage] = useState('');
+    const [errorMsg, setErrorMsg] = useState();
+    const [Loading, setLoading] = useState(false);
+
     const { myData } = useSelector((state) => state.myrecipe);
     const dataUpdate = myData.filter((data) => data._id === id);
 
@@ -18,8 +24,6 @@ const Edit = () => {
         strImage: dataUpdate[0].image,
         image: null,
     });
-    const [message, setMessage] = useState('');
-    const [errorMsg, setErrorMsg] = useState();
 
     // state untuk menghandle form
     const [formState, setFormState] = useState({
@@ -102,7 +106,8 @@ const Edit = () => {
     };
 
     const handleSubmit = async (e, id) => {
-        e.preventDefault()
+        setLoading(true)
+        e.preventDefault();
         const formData = new FormData();
         formData.append('name', formState.name);
         formData.append('description', formState.description);
@@ -118,19 +123,20 @@ const Edit = () => {
         })
 
         try {
-            const res = await axios.put(`http://localhost:3000/v1/user/food/update/${id}`, formData, {
+            const res = await axios.put(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/update/${id}`, formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
             })
             setMessage(res.data.message);
-            
             setTimeout(() => {
+                setLoading(false);
                 navigate('/dashboard/myrecipe');
             }, 1000)
         } catch (error) {
             setErrorMsg(error.response.data.data);
+            setLoading(false);
         }
     }
 
@@ -140,26 +146,25 @@ const Edit = () => {
             <div className="container add-recipe">
                 {
                     message && (
-                    <div className="alert alert-success sticky-top alert-dismissible fade show" role="alert">
-                        <strong>Success!</strong> {message}
-                        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    </div>
+                        <Alert 
+                        type={'success'}
+                        messageType={'Success!'}
+                        mainMessage={message} />
                     )
                 }
 
                 {
                 errorMsg && (
-                <div className="alert alert-danger sticky-top alert-dismissible fade show" role="alert">
+                <div className={`alert alert-danger`} role="alert">
                     <ul>
                         {errorMsg.map((err, index) => (
                             <li key={index}>{err.msg}</li>
                         ))}
                     </ul>
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 )
                 }
-
+                {Loading && (<div className="loader-box"><Loader /></div>)}
                 <form className="mt-3" onSubmit={(e) => handleSubmit(e, id)}>
                     <div className="main-post">
                         <h2 className="mb-4">01 ~ Food Name & Description</h2>
@@ -172,7 +177,7 @@ const Edit = () => {
                             <div className="preview">
                                 {imagePreview.image != null ? (
                                     <img src={imagePreview.image} alt="preview image" />
-                                ) : (<img src={`http://localhost:3000/${imagePreview.strImage}`} alt="preview image" />)}
+                                ) : (<img src={`${import.meta.env.VITE_APP_BASE_URL}/${imagePreview.strImage}`} alt="preview image" />)}
                             </div>
                         </div>
 

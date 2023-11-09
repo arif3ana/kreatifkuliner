@@ -13,7 +13,7 @@ const DetailRecipe = () => {
 
 
     const getData = async () => {
-        const res = await axios.get(`http://localhost:3000/v1/user/food/${id}`, {withCredentials: true})
+        const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/${id}`, {withCredentials: true})
         const data = await res.data.data;
         setData(data)
     }
@@ -40,7 +40,7 @@ const DetailRecipe = () => {
         <>
         <Navbar />
         <div className="container detail-recipe">
-            <img className="img-detail" src={`http://localhost:3000/${data.image}`} alt="image recipe" />
+            <img className="img-detail" src={`${import.meta.env.VITE_APP_BASE_URL}/${data.image}`} alt="image recipe" />
             <h1>{data.name}</h1>
             <p>author: {data.author} | {data.createdAt}</p>
             <p>{data.description}</p>
@@ -57,7 +57,7 @@ const DetailRecipe = () => {
             <ul>
                 {data.instructions.map((inst) => (
                     <li>
-                        {inst.img ? (<img className="img-detail" src={`http://localhost:3000/${inst.img}`} alt="image recipe" />) : null}
+                        {inst.img ? (<img className="img-detail" src={`${import.meta.env.VITE_APP_BASE_URL}/${inst.img}`} alt="image recipe" />) : null}
                         <p>{inst.step}</p>
                     </li>
                 ))}

@@ -4,12 +4,12 @@ import axios from "axios";
 export const setFoodData = createAsyncThunk(
     "landingPage/setFoodData",
     async (thunkAPI) => {
-        return await axios.get("http://localhost:3000/foods/recipe")
+        return await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/foods/recipe`)
         .then((response) => {
             return response.data
         })
         .catch((error) => {
-            data = error; // perbaikan
+            console.log(error); 
         })
     }
 )

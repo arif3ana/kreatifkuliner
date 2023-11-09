@@ -19,7 +19,7 @@ const FirstCard = (props) => {
                     location.pathname == "/dashboard/myrecipe" ? (
                         <>
                             <Link to={`/dashboard/edit/${id}`} className="btn btn-link">Edit</Link>
-                            <button onClick={handleDelete} className="btn btn-link">Delete</button>
+                            <button onClick={() => handleDelete(id)} className="btn btn-link">Delete</button>
                         </>
                     ) : null 
                     }

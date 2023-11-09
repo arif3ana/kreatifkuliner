@@ -4,7 +4,9 @@ import InputPassword from "../../components/atom/inputPassword";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../../utils/reducer/registerReducer";
+import Loader from "../../components/atom/loader";
 import "../../scss/page/register.scss";
+import Alert from "../../components/atom/alert";
 
 const Register = (props) => {
     const [username, setUsername] = useState('');
@@ -34,25 +36,59 @@ const Register = (props) => {
             "password": password
         }
 
-        await dispatch(userRegister({data}));
+        await dispatch(userRegister(data));
     }
 
-    const {userData} = useSelector((state) => state.register);
-    
-    if (userData === "Register Success!!") {
-        navigate('/login');
-    }
+    const {userData, err, isLoading} = useSelector((state) => state.register);
+    const [message, setMessage] = useState('');
+    const [error, setError] = useState('');
 
-    if (userData === "Input tidak valid") {
-        console.log(userData);
-    }
+    useEffect(() => {
+        if (err != null) {
+            if ('username' in err) {
+                setError(`Username sudah digunakan!!`)
+            }
+            if ('email' in err) {
+                setError(`Email sudah digunakan!!`)
+            }
+            if(err.length > 0) {
+                err.map((crash) => {
+                    setError(crash.msg)
+                })
+            }
+        }
+    }, [handleSubmit])
+
+
+    useEffect(() => {
+        setMessage(userData);
+        if (message === "Register Success!!") {
+            setTimeout(() => navigate(`/login`), 1500);
+        }
+    }, [handleSubmit]);
 
     return (
+    <>
     <div className="register">
+    {isLoading && (<div className="loader-box"><Loader /></div>)}
         <div className="form-register container">
+            {
+                message == 'Register Success!!' && (
+                <Alert 
+                messageType={message} 
+                type={'success'}
+                mainMessage={"Silahkan Login!!"} />
+                )
+            }
+            {
+                error && (
+                <Alert 
+                messageType={"Failed!"} 
+                type={'danger'}
+                mainMessage={error} />
+                )
+            }
             <h2 className="text-center">Register</h2>
-            {/* <p className="invalid-feedback">{userData}</p> */}
-            {/* Pr notif error belum ada */}
             <form onSubmit={handleSubmit} className="mb-5">
                 <Input 
                 divClassName="mb-3 input"
@@ -80,6 +116,7 @@ const Register = (props) => {
             </div>
         </div>
     </div>
+    </>
 
     )
 }

@@ -1,15 +1,18 @@
 import React, { useState } from "react";
+import axios from "axios";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import Input from "../../components/atom/input";
 import InputTextarea from "../../components/atom/inputTextarea";
+import Alert from "../../components/atom/alert";
+import Loader from '../../components/atom/loader';
 import "../../scss/page/add.scss";
-import axios from "axios";
 
 const Add = () => {
     const [imagePreview, setImagePreview] = useState(null);
     const [message, setMessage] = useState('');
     const [errorMsg, setErrorMsg] = useState();
+    const [isLoading, setIsLoading] = useState(false);
     // state untuk menghandle form
     const [formState, setFormState] = useState({
         name: '',
@@ -99,7 +102,8 @@ const Add = () => {
     };
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        setIsLoading(true);
         const formData = new FormData();
         formData.append('name', formState.name);
         formData.append('description', formState.description);
@@ -115,7 +119,7 @@ const Add = () => {
         })
 
         try {
-            const res = await axios.post('http://localhost:3000/v1/user/food/add-food', formData, {
+            const res = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/add-food`, formData, {
                 withCredentials: true,
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -123,9 +127,11 @@ const Add = () => {
             })
             setMessage(res.data.message);
             setFormState(initialStateClear);
-            setImagePreview(null)
+            setImagePreview(null);
+            setIsLoading(false);
         } catch (error) {
             setErrorMsg(error.response.data.data);
+            setIsLoading(false)
         }
     }
 
@@ -135,24 +141,24 @@ const Add = () => {
             <div className="container add-recipe">
                 {
                 message && (
-                <div className="alert alert-success sticky-top alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> {message}
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                <Alert 
+                type={'success'}
+                messageType={'Success!'}
+                mainMessage={message} />
                 )
                 }
                 {
                 errorMsg && (
-                <div className="alert alert-danger sticky-top alert-dismissible fade show" role="alert">
+                <div className={`alert alert-danger`} role="alert">
                     <ul>
                         {errorMsg.map((err, index) => (
                             <li key={index}>{err.msg}</li>
                         ))}
                     </ul>
-                    <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 )
                 }
+                {isLoading && (<div className="loader-box"><Loader /></div>)}
                 <form className="mt-3" onSubmit={handleSubmit}>
                     <div className="main-post">
                         <h2 className="mb-4">01 ~ Food Name & Description</h2>
@@ -160,7 +166,7 @@ const Add = () => {
                         <div className="main-image mb-3">
                             <div className="input-group">
                             <label className="input-group-text" htmlFor="inputGroupFile01">Image</label>
-                                <input className="form-control" id="inputGroupFile01" type="file" name="image" required onChange={handleImage}/>
+                                <input className="form-control" id="inputGroupFile01" type="file" name="image" onChange={handleImage}/>
                             </div>
                             <div className="preview">
                                 {imagePreview && (

@@ -7,6 +7,7 @@ import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import FirstCard from "../../components/firstCard";
 import "../../scss/page/dashboardhome.scss";
+import Loader from "../../components/atom/loader";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -14,7 +15,6 @@ const Home = () => {
     const {loginData} = useSelector((state) => state.login);
     
     // const accessToken = loginData.accessToken;
-
     useEffect(() => {
         const access = Cookies.get('accessToken');
         const refresh = Cookies.get('refreshToken');
@@ -35,7 +35,7 @@ const Home = () => {
 
     }, [])
 
-    const {homeData} = useSelector((state) => state.home);
+    const {homeData, isLoading} = useSelector((state) => state.home);
     const [searchTerm, setSearchTerm] = useState('');
     const [data, setData] = useState(homeData);
 
@@ -50,9 +50,7 @@ const Home = () => {
         const result = homeData.filter((recipe) => recipe.name.toLowerCase().includes(search.toLowerCase()));
         setData(result);
     }
-
     
-
     return (
         <>
         <Navbar />
@@ -60,6 +58,7 @@ const Home = () => {
             <input type="text" className="form-control" placeholder="Search Recipe . . . " aria-label="Username" aria-describedby="basic-addon1" onChange={onSearch} value={searchTerm}/>
             <span className="input-group-text" id="basic-addon1"><i className="bi bi-search" /></span>
         </div>
+        {isLoading && (<div className="loader-box"><Loader /></div>)}
         <div className="container home-content">
             {!data.msg ? data.map(data => (
                 <FirstCard 
@@ -67,11 +66,12 @@ const Home = () => {
                 key={data._id}
                 alt={data.name} 
                 title={data.name} 
-                image={`http://localhost:3000/${data.image}`} 
+                image={`${import.meta.env.VITE_APP_BASE_URL}/${data.image}`} 
                 description={data.description}
                 date={data.createdAt}
                 id={data._id} />
-            )) : <p>{data.msg}</p>}
+            )) : (<p className="text-center text-body-secondary">{data.msg}</p>)}
+            {data.length == 0 && (<p className="text-center text-body-secondary">Resep "{searchTerm}" tidak di temukan</p>)}
         </div>
         <SecondFooter />
         </>

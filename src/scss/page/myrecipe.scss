@@ -21,6 +21,17 @@ $larger_screen: 1200px;
             }   
         }
     } 
+    .loader-box {
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (min-width: $small_screen) {
@@ -41,6 +52,17 @@ $larger_screen: 1200px;
             }   
         }
     } 
+    .loader-box {
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (min-width: $medium_screen) {
@@ -59,6 +81,17 @@ $larger_screen: 1200px;
             }   
         }
     } 
+    .loader-box {
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (min-width: $large_screen) {
@@ -76,6 +109,17 @@ $larger_screen: 1200px;
             }   
         }
     } 
+    .loader-box {
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (min-width: $larger_screen) {
@@ -93,4 +137,15 @@ $larger_screen: 1200px;
             }   
         }
     } 
+    .loader-box {
+        position: fixed;
+        z-index: 99;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
