@@ -4,9 +4,9 @@ import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import Input from "../../components/atom/input";
 import InputTextarea from "../../components/atom/inputTextarea";
-import Alert from "../../components/atom/alert";
 import Loader from '../../components/atom/loader';
-import "../../scss/page/add.scss";
+import Swal from "sweetalert2";
+import '../../scss/page/add&edit.scss';
 
 const Add = () => {
     const [imagePreview, setImagePreview] = useState(null);
@@ -28,6 +28,25 @@ const Add = () => {
         image: null,
         ingredients: [''],
         instructions: [{ img: null, step: '' }]
+    }
+
+    // toast sweetaler success
+    const alertToast = (msg) => {
+        const Toast = Swal.mixin({
+           toast: true,
+           position: "top-end",
+           showConfirmButton: false,
+           timer: 3000,
+           timerProgressBar: true,
+           didOpen: (toast) => {
+             toast.onmouseenter = Swal.stopTimer;
+             toast.onmouseleave = Swal.resumeTimer;
+           }
+         });
+         Toast.fire({
+            icon: "success",
+            title: msg
+        })
     }
 
     const handleImage = (e) => {
@@ -92,12 +111,12 @@ const Add = () => {
         setFormState({ ...formState, instructions: list });
     };
     
-    const removeInputInstruction = (index) => {
+    const removeInputInstruction = () => {
         const list = [...formState.instructions];
         if (list.length == 1) {
             return false
         }
-        list.splice(index, 1);
+        list.pop();
         setFormState({ ...formState, instructions: list });
     };
 
@@ -134,19 +153,12 @@ const Add = () => {
             setIsLoading(false)
         }
     }
-
+    // untuk memanggil sweetalert success
+    message && alertToast(message); 
     return (
         <>
             <Navbar />
             <div className="container add-recipe">
-                {
-                message && (
-                <Alert 
-                type={'success'}
-                messageType={'Success!'}
-                mainMessage={message} />
-                )
-                }
                 {
                 errorMsg && (
                 <div className={`alert alert-danger`} role="alert">
@@ -165,7 +177,7 @@ const Add = () => {
                         {/* input main image */}
                         <div className="main-image mb-3">
                             <div className="input-group">
-                            <label className="input-group-text" htmlFor="inputGroupFile01">Image</label>
+                                <label className="input-group-text" htmlFor="inputGroupFile01">Image</label>
                                 <input className="form-control" id="inputGroupFile01" type="file" name="image" onChange={handleImage}/>
                             </div>
                             <div className="preview">
@@ -176,7 +188,7 @@ const Add = () => {
                         </div>
 
                         <Input 
-                        divClassName={'mb-3'}
+                        divClassName={'mb-3 input-name'}
                         name={'name'}
                         type={'text'}
                         placeholder={'Food Name'}
@@ -185,16 +197,15 @@ const Add = () => {
                         required
                         />
                         <InputTextarea 
-                        divClassName={'mb-3'}
+                        divClassName={'mb-3 input-description'}
                         name={'description'}
                         placeholder={'Descriptions ~ minimum 200 characters'}
-                        row={5}
+                        row={4}
                         value={formState.description}
                         handleChange={onHandleChange}
                         required
                         />
                     </div>
-
 
                     <div className="second-post">
                         <h2 className="mb-4">02 ~ Food Ingredient & Instruction</h2>
@@ -205,7 +216,7 @@ const Add = () => {
                                     {formState.ingredients.map((ingred, index) => (
                                     <li key={index}>
                                     <Input 
-                                    divClassName={'mb-3'}
+                                    divClassName={'mb-3 ingred-list'}
                                     name={'ingredients[]'}
                                     type={'text'}
                                     placeholder={'Ingredients'}
@@ -217,8 +228,8 @@ const Add = () => {
                                     ))}
                                 </ol>
                                 <div className="oprator-ingredient">
-                                    <button type="button" className="btn btn-primary substraction" onClick={removeInputIngredient}> - </button>
-                                    <button type="button" className="btn btn-primary add" onClick={addInputIngredient}> + </button>
+                                    <button type="button" className="btn substraction" onClick={removeInputIngredient}> - </button>
+                                    <button type="button" className="btn add" onClick={addInputIngredient}> + </button>
                                 </div>
                             </div>
 
@@ -232,8 +243,10 @@ const Add = () => {
                                         <input className="form-control" id="inputGroupFile02" type="file" name="instructions[]" onChange={(e) => onHandleChange(e, index, 'img')}/>
                                     </div>
                                     <InputTextarea 
+                                    divClassName={'intruct-desc'}
                                     name={'instructions[]'}
                                     placeholder={'Instructions'}
+                                    row={2}
                                     value={instruc.step}
                                     handleChange={(e) => onHandleChange(e, index, 'step')}
                                     required
@@ -242,14 +255,14 @@ const Add = () => {
                                     ))}
                                 </ol> 
                                 <div className="oprator-instruction">
-                                    <button type="button" className="btn btn-primary subtraction" onClick={removeInputInstruction}> - </button>
-                                    <button type="button" className="btn btn-primary add" onClick={addInputInstruction}> + </button>
+                                    <button type="button" className="btn substraction" onClick={removeInputInstruction}> - </button>
+                                    <button type="button" className="btn add" onClick={addInputInstruction}> + </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="form-btn mt-3">
-                        <button type="submit" className="btn btn-primary w-100">Add Recipe</button>
+                        <button type="submit" className="btn-submit">Add Recipe</button>
                     </div>
                 </form>
             </div>

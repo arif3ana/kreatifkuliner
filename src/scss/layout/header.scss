@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 $color: #ededed;
-$colorText: #7F8386;
-$mainColorText: #F6F6F6;
+$navBgColor: rgba(0,0,0,0.6);
+$colorTextJudul: #f2b724;
+$colorTextTagline: #c37918;
 $fontJudul: 'Julius Sans One', sans-serif;
+$fontTagline: 'Montserrat', sans-serif;
+
 $small_screen: 600px;
 $medium_screen: 768px;
 $large_screen: 992px;
@@ -10,19 +14,43 @@ $large_screen: 992px;
 //Small screen 
 @media screen and (max-width: $small_screen) {
     .navbar {
-        background-color: $color;
+        background-color: $navBgColor;
         width: auto;
-        padding: 40px;
+        padding: 10px;
         .navbar-text {
             font-family: $fontJudul;
             font-size: 4.5vw;
+            color: $colorTextJudul;
         }
         .auth-list {
             width: auto;
             display: flex;
             justify-content: end;
-            gap: 7vw;
-            font-size: 3.6vw;
+            gap: 2vw;
+            font-size: 3.3vw;
+            .btn-signup {
+                border: 1px solid $colorTextJudul;
+                padding: 5px 10px 5px 10px;
+                text-decoration: none;
+                color: $colorTextJudul;
+                border-radius: 10px;
+                transition: 0.3s;
+                &:hover {
+                    background-color: $colorTextJudul;
+                    color: black;
+                }
+            }
+            .btn-signin {
+                padding: 5px 10px 5px 10px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
+            }
         }
     }
 
@@ -43,16 +71,17 @@ $large_screen: 992px;
                     align-items: center;
                     justify-content: center;
                     .header-tagline {
-                        color: white;
                         width: 80%;
                 
                         h1 {
-                            font-family: $fontJudul;
+                            font-family: $fontTagline;
                             font-size: 9.3vw;
+                            color: $colorTextTagline;
                         }
                         p {
                             font-family: inherit;
                             font-size: 3.6vw;
+                            color: whitesmoke;
                         }
                     }
                 }
@@ -70,19 +99,43 @@ $large_screen: 992px;
 // small screen potrait
 @media screen and (min-width: $small_screen) { 
     .navbar {
-        background-color: $color;
+        background-color: $navBgColor;
         width: auto;
-        padding: 40px;
+        padding: 10px;
         .navbar-text {
             font-family: $fontJudul;
             font-size: 3vw;
+            color: $colorTextJudul;
         }
         .auth-list {
             width: auto;
             display: flex;
             justify-content: end;
-            gap: 7vw;
+            gap: 2vw;
             font-size: 2.5vw;
+            .btn-signup {
+                border: 1px solid $colorTextJudul;
+                padding: 5px 10px 5px 10px;
+                text-decoration: none;
+                color: $colorTextJudul;
+                border-radius: 10px;
+                transition: 0.3s;
+                &:hover {
+                    background-color: $colorTextJudul;
+                    color: black;
+                }
+            }
+            .btn-signin {
+                padding: 5px 10px 5px 10px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
+            }
         }
     }
 
@@ -102,16 +155,17 @@ $large_screen: 992px;
                     align-items: center;
                     justify-content: center;
                     .header-tagline {
-                        color: white;
                         width: 80%;
                 
                         h1 {
-                            font-family: $fontJudul;
+                            font-family: $fontTagline;
                             font-size: 7vw;
+                            color: $colorTextTagline;
                         }
                         p {
                             font-family: inherit;
                             font-size: 2.5vw;
+                            color: whitesmoke;
                         }
                     }
                 }
@@ -129,19 +183,43 @@ $large_screen: 992px;
 // medium screen
 @media screen and (min-width: $medium_screen) { 
     .navbar {
-        background-color: $color;
+        background-color: $navBgColor;
         width: auto;
-        padding: 40px;
+        padding: 10px;
         .navbar-text {
             font-family: $fontJudul;
             font-size: 3vw;
+            color: $colorTextJudul;
         }
         .auth-list {
             width: auto;
             display: flex;
             justify-content: end;
-            gap: 7vw;
+            gap: 2vw;
             font-size: 2.5vw;
+            .btn-signup {
+                border: 1px solid $colorTextJudul;
+                padding: 5px 10px 5px 10px;
+                text-decoration: none;
+                color: $colorTextJudul;
+                border-radius: 10px;
+                transition: 0.3s;
+                &:hover {
+                    background-color: $colorTextJudul;
+                    color: black;
+                }
+            }
+            .btn-signin {
+                padding: 5px 10px 5px 10px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
+            }
         }
     }
 
@@ -161,16 +239,17 @@ $large_screen: 992px;
                     align-items: center;
                     justify-content: center;
                     .header-tagline {
-                        color: white;
                         width: 80%;
                 
                         h1 {
-                            font-family: $fontJudul;
+                            font-family: $fontTagline;
                             font-size: 6vw;
+                            color: $colorTextTagline;
                         }
                         p {
                             font-family: inherit;
                             font-size: 2.5vw;
+                            color: whitesmoke;
                         }
                     }
                 }
@@ -188,19 +267,43 @@ $large_screen: 992px;
 // large screen
 @media screen and (min-width: $large_screen) { 
     .navbar {
-        background-color: $color;
+        background-color: $navBgColor;
         width: auto;
-        padding: 40px;
+        padding: 10px;
         .navbar-text {
             font-family: $fontJudul;
             font-size: 2.7vw;
+            color: $colorTextJudul;
         }
         .auth-list {
             width: auto;
             display: flex;
             justify-content: end;
-            gap: 7vw;
+            gap: 2vw;
             font-size: 1.8vw;
+            .btn-signup {
+                border: 1px solid $colorTextJudul;
+                padding: 5px 10px 5px 10px;
+                text-decoration: none;
+                color: $colorTextJudul;
+                border-radius: 10px;
+                transition: 0.3s;
+                &:hover {
+                    background-color: $colorTextJudul;
+                    color: black;
+                }
+            }
+            .btn-signin {
+                padding: 5px 10px 5px 10px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
+            }
         }
     }
 
@@ -212,24 +315,25 @@ $large_screen: 992px;
                 url("../../assets/img/hero.jpeg");
             background-size: cover;
             background-position: center;
-            height: 89vh;
+            height: 100vh;
             .carousel-item {
                 .hero {
-                    height: 89vh;
+                    height: 100vh;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     .header-tagline {
-                        color: white;
                         width: 80%;
-                
+                        
                         h1 {
-                            font-family: $fontJudul;
+                            font-family: $fontTagline;
                             font-size: 5vw;
+                            color: $colorTextTagline;
                         }
                         p {
                             font-family: inherit;
                             font-size: 1.8vw;
+                            color: whitesmoke;
                         }
                     }
                 }

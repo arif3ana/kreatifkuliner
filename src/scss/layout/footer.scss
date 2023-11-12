@@ -1,8 +1,228 @@
-.footer {
-    border: 1px solid black;
-    background-color: black;
-    .container {
-        color: white;
-        text-align: center;
-    }
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+$colorTextJudul: #f2b724;
+$colorTextTagline: #c37918;
+$fontJudul: 'Julius Sans One', sans-serif;
+$fontTagline: 'Montserrat', sans-serif;
+
+@media screen and (max-width: $small_screen) {
+    .footer {
+        border: 1px solid black;
+        background-color: black;
+        .container {
+            padding: 20px;
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                gap: 2vw;
+                .logo {
+                    text-align: center;
+                    h3 {
+                        font-size: 7vw;
+                        color: $colorTextJudul;
+                        font-family: $fontJudul;
+                    }
+                    p {
+                        font-size: 3.6vw;
+                        color: #ebebeb;
+                    }
+                }
+                .link {
+                    text-align: center;
+                    h6 {
+                        font-size: 4vw;
+                        color: $colorTextTagline;
+                        font-family: $fontTagline;
+                    }
+                    .list {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        font-size: 3.6vw;
+                        a {
+                            text-decoration: none;
+                            color: #ebebeb;
+                        }
+                    }
+                }
+            }
+
+            hr {
+                color: white;
+            }
+            .copyright {
+                font-size: 3.6vw;
+                text-align: center;
+                color: #ebebeb;
+            }
+
+        }
+    }   
+}
+
+@media screen and (min-width: $small_screen) {
+    .footer {
+        border: 1px solid black;
+        background-color: black;
+        .container {
+            padding: 20px;
+            .footer-content {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .logo {
+                    h3 {
+                        font-size: 3.5vw;
+                        color: $colorTextJudul;
+                        font-family: $fontJudul;
+                    }
+                    p {
+                        font-size: 2.6vw;
+                        color: #ebebeb;
+                    }
+                }
+                .link {
+                    h6 {
+                        font-size: 3vw;
+                        color: $colorTextTagline;
+                        font-family: $fontTagline;
+                    }
+                    .list {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        font-size: 2.6vw;
+                        a {
+                            text-decoration: none;
+                            color: #ebebeb;
+                        }
+                    }
+                }
+            }
+
+            hr {
+                color: white;
+            }
+            .copyright {
+                font-size: 2.6vw;
+                text-align: center;
+                color: #ebebeb;
+            }
+
+        }
+    }   
+}
+
+@media screen and (min-width: $medium_screen) {
+    .footer {
+        border: 1px solid black;
+        background-color: black;
+        .container {
+            padding: 20px;
+            .footer-content {
+                display: flex;
+                flex-direction: row;
+                gap: 2vw;
+                .logo {
+                    h3 {
+                        font-size: 3.5vw;
+                        color: $colorTextJudul;
+                        font-family: $fontJudul;
+                    }
+                    p {
+                        font-size: 2.5vw;
+                        color: #ebebeb;
+                    }
+                }
+                .link {
+                    h6 {
+                        font-size: 2.5vw;
+                        color: $colorTextTagline;
+                        font-family: $fontTagline;
+                    }
+                    .list {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: start;
+                        font-size: 2.5vw;
+                        a {
+                            text-decoration: none;
+                            color: #ebebeb;
+                        }
+                    }
+                }
+            }
+
+            hr {
+                color: white;
+            }
+            .copyright {
+                font-size: 2.5vw;
+                text-align: center;
+            }
+
+        }
+    }   
+}
+
+@media screen and (min-width: $large_screen) {
+    .footer {
+        border: 1px solid black;
+        background-color: black;
+        .container {
+            padding: 20px;
+            .footer-content {
+                display: flex;
+                flex-direction: row;
+                gap: 2vw;
+                .logo {
+                    h3 {
+                        font-size: 3.5vw;
+                        color: $colorTextJudul;
+                        font-family: $fontJudul;
+                    }
+                    p {
+                        font-size: 1.8vw;
+                        color: #ebebeb;
+                    }
+                }
+                .link {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    h6 {
+                        font-size: 2vw;
+                        color: $colorTextTagline;
+                        font-family: $fontTagline;
+                    }
+                    .list {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 2vw;
+                        justify-content: start;
+                        font-size: 1.8vw;
+                        a {
+                            text-decoration: none;
+                            color: #ebebeb;
+                        }
+                    }
+                }
+            }
+
+            hr {
+                color: white;
+            }
+            .copyright {
+                font-size: 1.8vw;
+                text-align: center;
+            }
+
+        }
+    }   
 }

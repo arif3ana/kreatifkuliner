@@ -1,5 +1,5 @@
 import React from "react";
-
+import '../../scss/component/inputTextarea.scss';
 const InputTextarea = 
 ({
     className, 
@@ -11,9 +11,9 @@ const InputTextarea =
     ...rest
 }) => {
     return (
-    <div className={divClassName}>
+    <div className={`${divClassName} input-textarea`}>
         <textarea 
-        className={`form-control ${className}`} 
+        className={`form-control ${className} textarea`} 
         placeholder={placeholder}
         name={name}
         onChange={handleChange}

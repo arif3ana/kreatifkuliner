@@ -1,5 +1,5 @@
 import React from "react";
-
+import "../../scss/component/input.scss";
 const Input = 
 ({
     type, 
@@ -11,7 +11,7 @@ const Input =
     ...rest
 }) => {
     return (
-    <div className={divClassName}>
+    <div className={`${divClassName} input-div`}>
         <input 
         type={type}
         className={`form-control ${className}`} 
@@ -19,7 +19,7 @@ const Input =
         placeholder={placeholder} 
         onChange={handleChange}
         {...rest}/>
-        
+        {location.pathname == '/dashboard' && (<span className="input-group-text" id="basic-addon1"><i className="bi bi-search" /></span>)}
     </div>
     )
 }

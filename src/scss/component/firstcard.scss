@@ -1,6 +1,9 @@
 $small_screen: 600px;
 $medium_screen: 768px;
 $large_screen: 992px;
+
+$colorBtnText: #c37918;
+
 @media screen and (max-width: $small_screen) {
     .card {
         .card-image {
@@ -17,6 +20,19 @@ $large_screen: 992px;
             .card-btn {
                 .btn {
                     font-size: 3.6vw;
+                    color: $colorBtnText;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                .delete {
+                    &:hover {
+                        color: red;
+                    }
+                }
+                .edit {
+                    &:hover {
+                        color: blue;
+                    }
                 }
                 width: 100%;
                 text-align: end;
@@ -41,6 +57,19 @@ $large_screen: 992px;
             .card-btn {
                 .btn {
                     font-size: 2.6vw;
+                    color: $colorBtnText;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                .delete {
+                    &:hover {
+                        color: red;
+                    }
+                }
+                .edit {
+                    &:hover {
+                        color: blue;
+                    }
                 }
                 width: 100%;
                 text-align: end;
@@ -65,6 +94,19 @@ $large_screen: 992px;
             .card-btn {
                 .btn {
                     font-size: 2.5vw;
+                    color: $colorBtnText;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                .delete {
+                    &:hover {
+                        color: red;
+                    }
+                }
+                .edit {
+                    &:hover {
+                        color: blue;
+                    }
                 }
                 width: 100%;
                 text-align: end;
@@ -89,6 +131,19 @@ $large_screen: 992px;
             .card-btn {
                 .btn {
                     font-size: 1.8vw;
+                    color: $colorBtnText;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+                .delete {
+                    &:hover {
+                        color: red;
+                    }
+                }
+                .edit {
+                    &:hover {
+                        color: blue;
+                    }
                 }
                 width: 100%;
                 text-align: end;

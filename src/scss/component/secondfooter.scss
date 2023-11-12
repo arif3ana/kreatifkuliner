@@ -6,11 +6,12 @@ $medium_screen: 768px;
 $large_screen: 992px;
 $larger_screen: 1200px;
 
+$colorJudul: #f2b724;
+
 @media screen and (max-width: $small_screen) {
     .second-footer {
         background-color: black;
         .container {
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -18,8 +19,10 @@ $larger_screen: 1200px;
             .web-name {
                 font-family: $fontJudul;
                 font-size: 5vw;
+                color: $colorJudul;
             }
             p {
+                color: whitesmoke;
                 font-size: 4vw;
                 cursor: pointer;
             }
@@ -31,7 +34,6 @@ $larger_screen: 1200px;
     .second-footer {
         background-color: black;
         .container {
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -39,10 +41,12 @@ $larger_screen: 1200px;
             .web-name {
                 font-family: $fontJudul;
                 font-size: 4vw;
+                color: $colorJudul;
             }
             p {
                 font-size: 3.2vw;
                 cursor: pointer;
+                color: whitesmoke;
             }
         }
     }
@@ -52,7 +56,6 @@ $larger_screen: 1200px;
     .second-footer {
         background-color: black;
         .container {
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -60,10 +63,12 @@ $larger_screen: 1200px;
             .web-name {
                 font-family: $fontJudul;
                 font-size: 3vw;
+                color: $colorJudul;
             }
             p {
                 font-size: 2.8vw;
                 cursor: pointer;
+                color: whitesmoke;
             }
         }
     }
@@ -73,7 +78,6 @@ $larger_screen: 1200px;
     .second-footer {
         background-color: black;
         .container {
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -81,10 +85,12 @@ $larger_screen: 1200px;
             .web-name {
                 font-family: $fontJudul;
                 font-size: 2vw;
+                color: $colorJudul;
             }
             p {
                 font-size: 1.9vw;
                 cursor: pointer;
+                color: whitesmoke;
             }
         }
     }
@@ -94,7 +100,6 @@ $larger_screen: 1200px;
     .second-footer {
         background-color: black;
         .container {
-            color: white;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
@@ -102,25 +107,14 @@ $larger_screen: 1200px;
             .web-name {
                 font-family: $fontJudul;
                 font-size: 2.5vw;
+                color: $colorJudul;
             }
             p {
                 font-size: 2vw;
                 cursor: pointer;
+                color: whitesmoke;
+                
             }
         }
     }
 }
-
-// .second-footer {
-//     background-color: black;
-//     .container {
-//         color: white;
-//         display: flex;
-//         justify-content: space-between;
-//         margin-top: 2vw;
-//         .web-name {
-//             font-family: $fontJudul;
-//             font-size: 2vw;
-//         }
-//     }
-// }

@@ -35,7 +35,6 @@ const DetailRecipe = () => {
     }, [])
 
 
-    console.log(data);
     return (
         <>
         <Navbar />
@@ -47,16 +46,16 @@ const DetailRecipe = () => {
             <h3>Ingredients</h3>
             {data && data.ingredients && (
             <ul>
-            {data.ingredients.map((ingred) => (
-                <li>{ingred}</li>
+            {data.ingredients.map((ingred, index) => (
+                <li key={index}>{ingred}</li>
             ))}
             </ul>
             )}
             <h3>How To Make</h3>
             {data && data.instructions && (
             <ul>
-                {data.instructions.map((inst) => (
-                    <li>
+                {data.instructions.map((inst, index) => (
+                    <li key={index}>
                         {inst.img ? (<img className="img-detail" src={`${import.meta.env.VITE_APP_BASE_URL}/${inst.img}`} alt="image recipe" />) : null}
                         <p>{inst.step}</p>
                     </li>

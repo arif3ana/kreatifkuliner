@@ -39,7 +39,7 @@ const Home = () => {
                 ))}
             </div>
             <div className="text-center mt-5">
-            <Link to={'/register'} className="btn btn-primary">Explore more..</Link>
+            <Link to={'/register'} className="btn-explore">Explore more...</Link>
             </div>
         </div>
         <Footer />

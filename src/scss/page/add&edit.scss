@@ -1,0 +1,846 @@
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+$fontJudul: 'Montserrat', sans-serif;
+$colorTextJudul: #f2b724;
+$colorFocusInput: #f2b724;
+
+
+// sizing for small device
+$sizeJudul: 5.5vw;
+$opratorBtnSize: 4vw;
+$generalFontSize: 3.6vw;
+@media screen and (max-width: $small_screen) {
+    .add-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .main-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            margin-bottom: 2vw;
+            h2 {
+                font-size: $sizeJudul;
+                font-family: $fontJudul;
+            }
+            .main-image {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2vw;
+                grid-auto-flow: dense;
+                .input-group {
+                    width: 80%;
+                    label {
+                        font-size: $generalFontSize;
+                    }
+                    input {
+                        font-size: $generalFontSize;
+                        &:focus {
+                            outline: none;
+                            border-color: $colorFocusInput;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                .preview {
+                    grid-row: 1;
+                    margin-bottom: 2vw;
+                    img {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+        }
+        .second-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            h2 {
+                font-size: $sizeJudul;
+                font-family: $fontJudul;
+            }
+            .input-recipe {
+                display: flex;
+                flex-direction: column;
+                gap: 1vw;
+                margin-top: 2vw;
+    
+                .ingredients {
+                    h3 {
+                        font-size: $sizeJudul;
+                    }
+                    .oprator-ingredient {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+    
+                .instructions {
+                    h3 {
+                        font-size: $sizeJudul;
+                    }
+                    .img-preview {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                        margin-bottom: 1vw
+                    }
+
+                    .input-group {
+                        width: 100%;
+                        label {
+                            font-size: $generalFontSize;
+                            border-radius: 0;
+                            border-top-left-radius: 2vw;
+                        }
+                        input {
+                            font-size: $generalFontSize;
+                            border-radius: 0;
+                            border-top-right-radius: 2vw;
+                            &:focus {
+                                outline: none;
+                                border-color: $colorFocusInput;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    .intruct-desc {
+                        textarea {
+                            border-radius: 0 0 1vw 1vw;
+                        }
+                    }
+                    .oprator-instruction {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-submit {
+            font-size: $generalFontSize;
+            color: black;
+            background-color: $colorTextJudul;
+            border: none;
+            width: 100%;
+            &:hover {
+                background-color: #c37918;
+            }
+        }
+        .loader-box{
+            position: fixed;
+            z-index: 99;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+//sizing for above small device
+$sizeJudul_SmallTab: 4.5vw;
+$opratorBtnSize_smallTab: 3vw;
+$generalFontSize_SmallTab: 2.6vw;
+@media screen and (min-width: $small_screen) {
+    .add-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .main-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            margin-bottom: 2vw;
+            h2 {
+                font-size: $sizeJudul_SmallTab;
+                font-family: $fontJudul;
+            }
+            .main-image {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2vw;
+                grid-auto-flow: dense;
+                .input-group {
+                    width: 80%;
+                    label {
+                        font-size: $generalFontSize_SmallTab;
+                    }
+                    input {
+                        font-size: $generalFontSize_SmallTab;
+                        &:focus {
+                            outline: none;
+                            border-color: $colorFocusInput;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                .preview {
+                    grid-row: 1;
+                    margin-bottom: 2vw;
+                    img {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+        }
+        .second-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            h2 {
+                font-size: $sizeJudul_SmallTab;
+                font-family: $fontJudul;
+            }
+            .input-recipe {
+                display: flex;
+                flex-direction: column;
+                gap: 1vw;
+                margin-top: 2vw;
+    
+                .ingredients {
+                    h3 {
+                        font-size: $sizeJudul_SmallTab;
+                    }
+                    .oprator-ingredient {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_smallTab;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_smallTab;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+    
+                .instructions {
+                    h3 {
+                        font-size: $sizeJudul_SmallTab;
+                    }
+                    .img-preview {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                        margin-bottom: 1vw
+                    }
+                    .input-group {
+                        width: 100%;
+                        label {
+                            font-size: $generalFontSize_SmallTab;
+                            border-radius: 0;
+                            border-top-left-radius: 2vw;
+                        }
+                        input {
+                            font-size: $generalFontSize_SmallTab;
+                            border-radius: 0;
+                            border-top-right-radius: 2vw;
+                            &:focus {
+                                outline: none;
+                                border-color: $colorFocusInput;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    .intruct-desc {
+                        textarea {
+                            border-radius: 0 0 1vw 1vw;
+                        }
+                    }
+                    .oprator-instruction {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_smallTab;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_smallTab;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-submit {
+            font-size: $generalFontSize_SmallTab;
+            color: black;
+            background-color: $colorTextJudul;
+            border: none;
+            width: 100%;
+            &:hover {
+                background-color: #c37918;
+            }
+        }
+        .loader-box{
+            position: fixed;
+            z-index: 99;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+//sizing for above medium device
+$sizeJudul_medium: 4vw;
+$opratorBtnSize_medium: 3vw;
+$generalFontSize_medium: 2.5vw;
+@media screen and (min-width: $medium_screen) {
+    .add-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .main-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            margin-bottom: 2vw;
+            h2 {
+                font-size: $sizeJudul_medium;
+                font-family: $fontJudul;
+            }
+            .main-image {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2vw;
+                grid-auto-flow: dense;
+                .input-group {
+                    width: 80%;
+                    grid-row: 1;
+                    label {
+                        font-size: $generalFontSize_medium;
+                    }
+                    input {
+                        font-size: $generalFontSize_medium;
+                        &:focus {
+                            outline: none;
+                            border-color: $colorFocusInput;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                .preview {
+                    margin-bottom: 2vw;
+                    img {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+        }
+        .second-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            h2 {
+                font-size: $sizeJudul_medium;
+                font-family: $fontJudul;
+            }
+            .input-recipe {
+                display: flex;
+                flex-direction: column;
+                gap: 1vw;
+                margin-top: 2vw;
+    
+                .ingredients {
+                    h3 {
+                        font-size: $sizeJudul_medium;
+                    }
+                    .oprator-ingredient {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_medium;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_medium;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+    
+                .instructions {
+                    h3 {
+                        font-size: $sizeJudul_medium;
+                    }
+
+                    .img-preview {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                        margin-bottom: 1vw
+                    }
+
+                    .input-group {
+                        width: 100%;
+                        label {
+                            font-size: $generalFontSize_medium;
+                            border-radius: 0;
+                            border-top-left-radius: 2vw;
+                        }
+                        input {
+                            font-size: $generalFontSize_medium;
+                            border-radius: 0;
+                            border-top-right-radius: 2vw;
+                            &:focus {
+                                outline: none;
+                                border-color: $colorFocusInput;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    .intruct-desc {
+                        textarea {
+                            border-radius: 0 0 1vw 1vw;
+                        }
+                    }
+                    .oprator-instruction {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_medium;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_medium;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-submit {
+            font-size: $generalFontSize_medium;
+            color: black;
+            background-color: $colorTextJudul;
+            border: none;
+            width: 100%;
+            &:hover {
+                background-color: #c37918;
+            }
+        }
+        .loader-box{
+            position: fixed;
+            z-index: 99;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+//sizing for above large device
+$sizeJudul_large: 3vw;
+$opratorBtnSize_large: 2vw;
+$generalFontSize_large: 1.6vw;
+@media screen and (min-width: $large_screen) {
+    .add-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .main-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            margin-bottom: 2vw;
+            h2 {
+                font-size: $sizeJudul_large;
+                font-family: $fontJudul;
+            }
+            .main-image {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2vw;
+                grid-auto-flow: dense;
+                .input-group {
+                    grid-row: 1;
+                    width: 80%;
+                    label {
+                        font-size: $generalFontSize_large;
+                    }
+                    input {
+                        font-size: $generalFontSize_large;
+                        &:focus {
+                            outline: none;
+                            border-color: $colorFocusInput;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                .preview {
+                    margin-bottom: 2vw;
+                    img {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+        }
+        .second-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            h2 {
+                font-size: $sizeJudul_large;
+                font-family: $fontJudul;
+            }
+            .input-recipe {
+                display: flex;
+                flex-direction: column;
+                gap: 1vw;
+                margin-top: 2vw;
+    
+                .ingredients {
+                    h3 {
+                        font-size: $sizeJudul_large;
+                    }
+                    .oprator-ingredient {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_large;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_large;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+    
+                .instructions {
+                    h3 {
+                        font-size: $sizeJudul_large;
+                    }
+                    .img-preview {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                        margin-bottom: 1vw
+                    }
+                    .input-group {
+                        width: 100%;
+                        label {
+                            font-size: $generalFontSize_large;
+                            border-radius: 0;
+                            border-top-left-radius: 2vw;
+                        }
+                        input {
+                            font-size: $generalFontSize_large;
+                            border-radius: 0;
+                            border-top-right-radius: 2vw;
+                            &:focus {
+                                outline: none;
+                                border-color: $colorFocusInput;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    .intruct-desc {
+                        textarea {
+                            border-radius: 0 0 1vw 1vw;
+                        }
+                    }
+                    .oprator-instruction {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_large;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_large;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-submit {
+            font-size: $generalFontSize_large;
+            color: black;
+            background-color: $colorTextJudul;
+            border: none;
+            width: 100%;
+            &:hover {
+                background-color: #c37918;
+            }
+        }
+        .loader-box{
+            position: fixed;
+            z-index: 99;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+
+//sizing for above larger device
+$sizeJudul_larger: 3vw;
+$opratorBtnSize_larger: 2vw;
+$generalFontSize_larger: 1.6vw;
+@media screen and (min-width: $larger_screen) {
+    .add-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .main-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            margin-bottom: 2vw;
+            h2 {
+                font-size: $sizeJudul_larger;
+                font-family: $fontJudul;
+            }
+            .main-image {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+                gap: 2vw;
+                grid-auto-flow: dense;
+                .input-group {
+                    grid-row: 1;
+                    width: 80%;
+                    label {
+                        font-size: $generalFontSize_larger;
+                    }
+                    input {
+                        font-size: $generalFontSize_larger;
+                        &:focus {
+                            outline: none;
+                            border-color: $colorFocusInput;
+                            box-shadow: none;
+                        }
+                    }
+                }
+                .preview {
+                    margin-bottom: 2vw;
+                    img {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                    }
+                }
+            }
+        }
+        .second-post {
+            border: 1px solid black;
+            border-radius: 2vw;
+            padding: 5vw;
+            h2 {
+                font-size: $sizeJudul_larger;
+                font-family: $fontJudul;
+            }
+            .input-recipe {
+                display: flex;
+                flex-direction: column;
+                gap: 1vw;
+                margin-top: 2vw;
+    
+                .ingredients {
+                    h3 {
+                        font-size: $sizeJudul_larger;
+                    }
+                    .oprator-ingredient {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_larger;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_larger;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+    
+                .instructions {
+                    h3 {
+                        font-size: $sizeJudul_larger;
+                    }
+                    .img-preview {
+                        width: 50%;
+                        aspect-ratio:  6/4;
+                        object-fit: cover;
+                        border-radius: 2vw;
+                        margin-bottom: 1vw
+                    }
+                    .input-group {
+                        width: 100%;
+                        label {
+                            font-size: $generalFontSize_larger;
+                            border-radius: 0;
+                            border-top-left-radius: 2vw;
+                        }
+                        input {
+                            font-size: $generalFontSize_larger;
+                            border-radius: 0;
+                            border-top-right-radius: 2vw;
+                            &:focus {
+                                outline: none;
+                                border-color: $colorFocusInput;
+                                box-shadow: none;
+                            }
+                        }
+                    }
+                    .intruct-desc {
+                        textarea {
+                            border-radius: 0 0 1vw 1vw;
+                        }
+                    }
+                    .oprator-instruction {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 1vw;
+                        justify-content: flex-end;
+                        .substraction {
+                            font-size: $opratorBtnSize_larger;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                        .add {
+                            font-size: $opratorBtnSize_larger;
+                            color: black;
+                            background-color: $colorTextJudul;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+        .btn-submit {
+            font-size: $generalFontSize_larger;
+            color: black;
+            background-color: $colorTextJudul;
+            border: none;
+            width: 100%;
+            &:hover {
+                background-color: #c37918;
+            }
+        }
+        .loader-box{
+            position: fixed;
+            z-index: 99;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

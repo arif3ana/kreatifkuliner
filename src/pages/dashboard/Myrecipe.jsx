@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { recipeContent, recipeDelete } from "../../utils/reducer/myrecipeReducer";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import FirstCard from "../../components/firstCard";
 import Loader from "../../components/atom/loader";
+import Swal from "sweetalert2";
 import "../../scss/page/myrecipe.scss";
 
 const Myrecipe = () => {
     const dispatch = useDispatch()
-
+    const navigate = useNavigate()
     useEffect(() => {
         const access = Cookies.get('accessToken');
         const refresh = Cookies.get('refreshToken');
@@ -38,11 +40,23 @@ const Myrecipe = () => {
     }, [myData]);
 
     function onDelete(id) {
-       dispatch(recipeDelete({id}))
-       const result = myData.filter((recipe) => recipe._id !== id);
-        setData(result);
-    }
-
+        Swal.fire({
+            title: "Apa kamu yakin?",
+            text: "Apakah kamu ingin menghapus ini ?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then(async (result) => {
+              if (result.isConfirmed) {
+                await dispatch(recipeDelete({id}));
+                const result = myData.filter((recipe) => recipe._id !== id);
+                setData(result);
+                }
+            }); 
+        }
+        
     return (
         <>
         <Navbar />
@@ -60,6 +74,7 @@ const Myrecipe = () => {
                     id={recipe._id} 
                     handleDelete={() => onDelete(recipe._id)} />
                 )) : (<p className="text-center text-body-secondary">{data.msg}</p>) }
+                <p className="text-body-secondary">jumlah Post: {data.length}</p>
             </div>
         <SecondFooter />
         </>

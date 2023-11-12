@@ -3,6 +3,11 @@ $medium_screen: 768px;
 $large_screen: 992px;
 $larger_screen: 1200px;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+$fontJudul: 'Montserrat', sans-serif;
+$colorTextJudul: #f2b724;
+
 @media screen and (max-width: $small_screen) {
     .login {
         background-image: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), url("../../assets/img/2.jpeg");
@@ -20,7 +25,8 @@ $larger_screen: 1200px;
             justify-content: center;
             align-items: center;
             h2 {
-                color: white;
+                color: $colorTextJudul;
+                font-family: $fontJudul;
                 font-size: 7vw;
                 margin-bottom: 5vw;
             }
@@ -34,6 +40,15 @@ $larger_screen: 1200px;
             }
             .form-btn {
                 font-size: 3.6vw;
+                padding: 10px 15px 10px 15px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
             }
             .alert {
                 position: absolute;
@@ -74,7 +89,8 @@ $larger_screen: 1200px;
             justify-content: center;
             align-items: center;
             h2 {
-                color: white;
+                color: $colorTextJudul;
+                font-family: $fontJudul;
                 font-size: 5vw;
                 margin-bottom: 5vw;
             }
@@ -88,6 +104,15 @@ $larger_screen: 1200px;
             }
             .form-btn {
                 font-size: 2.6vw;
+                padding: 10px 15px 10px 15px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
             }
             .alert {
                 position: absolute;
@@ -128,7 +153,8 @@ $larger_screen: 1200px;
             justify-content: center;
             align-items: center;
             h2 {
-                color: white;
+                color: $colorTextJudul;
+                font-family: $fontJudul;
                 font-size: 4.5vw;
                 margin-bottom: 5vw;
             }
@@ -142,6 +168,15 @@ $larger_screen: 1200px;
             }
             .form-btn {
                 font-size: 2.5vw;
+                padding: 10px 15px 10px 15px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
             }
             .alert {
                 position: absolute;
@@ -180,7 +215,8 @@ $larger_screen: 1200px;
             justify-content: center;
             align-items: center;
             h2 {
-                color: white;
+                color: $colorTextJudul;
+                font-family: $fontJudul;
                 font-size: 3.5vw;
                 margin-bottom: 5vw;
             }
@@ -194,6 +230,15 @@ $larger_screen: 1200px;
             }
             .form-btn {
                 font-size: 1.6vw;
+                padding: 10px 15px 10px 15px;
+                background-color: $colorTextJudul;
+                border-radius: 10px;
+                text-decoration: none;
+                color: black;
+                transition: 0.3s;
+                &:hover {
+                    background-color: #af8418;
+                }
             }
             .alert {
                 position: absolute;

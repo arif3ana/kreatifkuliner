@@ -3,14 +3,14 @@ $medium_screen: 768px;
 $large_screen: 992px;
 $larger_screen: 1200px;
 
-$colorText: #7F8386;
-
+$colorText: whitesmoke;
+$colorBorderBottom: #f2b724;
+$colorHoverText: #c37918;
+$colorBg: black;
 @media screen and (max-width: $small_screen) {
     .nav {
-        border: 3px  solid #D3D3D3;
-        background-color: white;
-        border-right: none;
-        border-left: none;
+        border-bottom: 3px  solid $colorBorderBottom;
+        background-color: $colorBg;
         display: flex;
         justify-content: center;
         .list-link {
@@ -27,8 +27,11 @@ $colorText: #7F8386;
                 font-weight: 500;
                 transition: 0.5s;
                 &:hover {
-                    color: #585858;
+                    color: $colorHoverText;
                 }
+            }
+            .active {
+                color: $colorHoverText;
             }
         }
     }
@@ -36,10 +39,8 @@ $colorText: #7F8386;
 
 @media screen and (min-width: $small_screen) {
     .nav {
-        border: 3px  solid #D3D3D3;
-        background-color: white;
-        border-right: none;
-        border-left: none;
+        border-bottom: 3px  solid $colorBorderBottom;
+        background-color: $colorBg;
         display: flex;
         justify-content: center;
         .list-link {
@@ -56,8 +57,11 @@ $colorText: #7F8386;
                 font-weight: 500;
                 transition: 0.5s;
                 &:hover {
-                    color: #585858;
+                    color: $colorHoverText;
                 }
+            }
+            .active {
+                color: $colorHoverText;
             }
         }
     }
@@ -65,10 +69,8 @@ $colorText: #7F8386;
 
 @media screen and (min-width: $medium_screen) {
     .nav {
-        border: 3px  solid #D3D3D3;
-        background-color: white;
-        border-right: none;
-        border-left: none;
+        border-bottom: 3px  solid $colorBorderBottom;
+        background-color: $colorBg;
         display: flex;
         justify-content: center;
         .list-link {
@@ -85,8 +87,11 @@ $colorText: #7F8386;
                 font-weight: 500;
                 transition: 0.5s;
                 &:hover {
-                    color: #585858;
+                    color: $colorHoverText;
                 }
+            }
+            .active {
+                color: $colorHoverText;
             }
         }
     }
@@ -94,10 +99,8 @@ $colorText: #7F8386;
 
 @media screen and (min-width: $large_screen) {
     .nav {
-        border: 3px  solid #D3D3D3;
-        background-color: white;
-        border-right: none;
-        border-left: none;
+        border-bottom: 3px  solid $colorBorderBottom;
+        background-color: $colorBg;
         display: flex;
         justify-content: center;
         .list-link {
@@ -114,8 +117,11 @@ $colorText: #7F8386;
                 font-weight: 500;
                 transition: 0.5s;
                 &:hover {
-                    color: #585858;
+                    color: $colorHoverText;
                 }
+            }
+            .active {
+                color: $colorHoverText;
             }
         }
     }
@@ -123,10 +129,8 @@ $colorText: #7F8386;
 
 @media screen and (min-width: $larger_screen) {
     .nav {
-        border: 3px  solid #D3D3D3;
-        background-color: white;
-        border-right: none;
-        border-left: none;
+        border-bottom: 3px  solid $colorBorderBottom;
+        background-color: $colorBg;
         display: flex;
         justify-content: center;
         .list-link {
@@ -143,8 +147,11 @@ $colorText: #7F8386;
                 font-weight: 500;
                 transition: 0.5s;
                 &:hover {
-                    color: #585858;
+                    color: $colorHoverText;
                 }
+            }
+            .active {
+                color: $colorHoverText;
             }
         }
     }

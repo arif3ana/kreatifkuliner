@@ -6,8 +6,9 @@ import Cookies from "js-cookie";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import FirstCard from "../../components/firstCard";
-import "../../scss/page/dashboardhome.scss";
 import Loader from "../../components/atom/loader";
+import "../../scss/page/dashboardhome.scss";
+import Input from "../../components/atom/input";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -54,10 +55,19 @@ const Home = () => {
     return (
         <>
         <Navbar />
-        <div className="container w-50 search-form input-group mb-5 mt-3">
-            <input type="text" className="form-control" placeholder="Search Recipe . . . " aria-label="Username" aria-describedby="basic-addon1" onChange={onSearch} value={searchTerm}/>
+        {/* <div className="container input-group search-form mb-5 mt-3">
+            <input type="text" className="form-control search" placeholder="Search Recipe . . . " aria-label="Username" aria-describedby="basic-addon1" onChange={onSearch} value={searchTerm}/>
             <span className="input-group-text" id="basic-addon1"><i className="bi bi-search" /></span>
-        </div>
+        </div> */}
+        <Input 
+        divClassName={'container input-group search-form mb-5 mt-3'}
+        className={'search'}
+        placeholder={'Search Recipe . . .'}
+        aria-label="Search" 
+        aria-describedby="basic-addon1" 
+        handleChange={onSearch}
+        value={searchTerm}
+        />
         {isLoading && (<div className="loader-box"><Loader /></div>)}
         <div className="container home-content">
             {!data.msg ? data.map(data => (

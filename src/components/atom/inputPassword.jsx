@@ -1,5 +1,5 @@
 import React from "react";
-
+import '../../scss/component/input.scss';
 const InputPassword = (props) => {
     const {className, handleChange} = props;
     const eyeHandler = (e) => {
@@ -10,7 +10,7 @@ const InputPassword = (props) => {
         return input.type = "password";
     }
      return (
-    <div className={`input-group flex-nowrap ${className}`}>
+    <div className={`input-group flex-nowrap ${className} input-div`}>
         <input 
         type="password" 
         className="form-control" 

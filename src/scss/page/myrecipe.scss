@@ -96,8 +96,9 @@ $larger_screen: 1200px;
 
 @media screen and (min-width: $large_screen) {
     .card-recipe {
-        margin-bottom: 15vh;
+        margin-bottom: 5vh;
         margin-top: 1vh;
+        padding-bottom: 2vh;
         .recipe-content {
             border: none;
             margin-bottom: 2.5vw;

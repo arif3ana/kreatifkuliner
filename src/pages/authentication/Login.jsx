@@ -61,7 +61,7 @@ const Login = () => {
                 mainMessage={error} />
                 )
             }
-            <h2 className="text-center">Log in</h2>
+            <h2 className="text-center">Sign In</h2>
             <form onSubmit={handleSubmit} className="mb-5">
                 <Input 
                 divClassName="mb-3 input"
@@ -75,7 +75,7 @@ const Login = () => {
                 handleChange={onHandleChange}/>
 
                 <div className="text-end">
-                <button type="submit" className="btn btn-primary form-btn">Log in</button>
+                <button type="submit" className="form-btn">Sign In</button>
                 </div>
             </form>
             <div className="link-center">

@@ -1,0 +1,57 @@
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
+
+$generalFontSize: 3.6vw;
+@media screen and (max-width: $small_screen) {
+    .alert {
+        position: sticky;
+        top: 6%;
+        left: 90%;
+        width: 90%;
+        z-index: 999;
+        font-size: $generalFontSize;
+    }  
+}
+
+$generalFontSize_SmallTab: 2.6vw;
+@media screen and (min-width: $small_screen) {
+    .alert {
+        position: sticky;
+        top: 8%;
+        left: 90%;
+        width: 70%;
+        z-index: 999;
+        font-size: $generalFontSize_SmallTab;
+    }  
+}
+
+$generalFontSize_medium: 2.5vw;
+@media screen and (min-width: $medium_screen) {
+    .alert {
+        top: 6%;
+        width: 60%;
+        font-size: $generalFontSize_medium;
+    }  
+}
+
+$generalFontSize_large: 1.6vw;
+@media screen and (min-width: $large_screen) {
+    .alert {
+        position: sticky;
+        top: 9%;
+        width: 50%;
+        font-size: $generalFontSize_large;
+    }  
+}
+
+$generalFontSize_larger: 1.6vw;
+@media screen and (min-width: $larger_screen) {
+    .alert {
+        position: sticky;
+        top: 7%;
+        width: 40%;
+        font-size: $generalFontSize_larger;
+    } 
+}

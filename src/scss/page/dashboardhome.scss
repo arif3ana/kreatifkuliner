@@ -21,6 +21,13 @@ $larger_screen: 1200px;
             }
         }
     }
+    .search-form {
+        justify-content: center;
+        input {
+            width: 100%;
+            max-width: 70%;
+        }
+    }
     .loader-box {
         position: absolute;
         z-index: 99;
@@ -50,6 +57,13 @@ $larger_screen: 1200px;
                 object-fit: cover;
                 border-radius: 3vw;
             }
+        }
+    }
+    .search-form {
+        justify-content: center;
+        input {
+            width: 100%;
+            max-width: 70%;
         }
     }
     .loader-box {
@@ -91,6 +105,13 @@ $larger_screen: 1200px;
             }
         }
     }
+    .search-form {
+        justify-content: center;
+        input {
+            width: 100%;
+            max-width: 60%;
+        }
+    }
     .loader-box {
         position: absolute;
         z-index: 99;
@@ -129,6 +150,13 @@ $larger_screen: 1200px;
             }
         }
     }
+    .search-form {
+        justify-content: center;
+        input {
+            width: 100%;
+            max-width: 50%;
+        }
+    }
     .loader-box {
         position: absolute;
         z-index: 99;
@@ -165,6 +193,13 @@ $larger_screen: 1200px;
                 display: flex;
                 flex-direction: row;
             }
+        }
+    }
+    .search-form {
+        justify-content: center;
+        input {
+            width: 100%;
+            max-width: 50%;
         }
     }
     .loader-box {

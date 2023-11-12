@@ -1,8 +1,8 @@
 import React from "react";
-import "../scss/component/secondfooter.scss";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import "../scss/component/secondfooter.scss";
 
 
 const SecondFooter = () => {
@@ -26,7 +26,7 @@ const SecondFooter = () => {
         <footer className="second-footer fixed-bottom">
             <div className="container">
                 <p className="web-name">kreatif kuliner</p>
-                <p onClick={handleClick}>Logout</p>
+                <p onClick={handleClick}>Sign Out</p>
             </div>
         </footer>
     )

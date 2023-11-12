@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegister } from "../../utils/reducer/registerReducer";
 import Loader from "../../components/atom/loader";
-import "../../scss/page/register.scss";
 import Alert from "../../components/atom/alert";
+import "../../scss/page/register.scss";
 
-const Register = (props) => {
+const Register = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -88,13 +88,14 @@ const Register = (props) => {
                 mainMessage={error} />
                 )
             }
-            <h2 className="text-center">Register</h2>
+            <h2 className="text-center">Sign Up</h2>
             <form onSubmit={handleSubmit} className="mb-5">
                 <Input 
                 divClassName="mb-3 input"
                 type="text"
                 name="username"
                 placeholder="Username"
+                required
                 handleChange={onHandleChange}/>
 
                 <Input 
@@ -102,13 +103,14 @@ const Register = (props) => {
                 type="email"
                 name="email"
                 placeholder="Email" 
+                required
                 handleChange={onHandleChange} />
 
                 <InputPassword 
-                className="mb-3 input" handleChange={onHandleChange} />
+                className="mb-3 input" handleChange={onHandleChange} required />
 
                 <div className="text-end">
-                    <button type="submit" className="btn btn-primary form-btn">Register</button>
+                    <button type="submit" className="form-btn">Sign Up</button>
                 </div>
             </form>
             <div className="link-center">

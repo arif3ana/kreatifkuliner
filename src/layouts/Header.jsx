@@ -1,19 +1,19 @@
 import React from "react";
-import "../scss/layout/header.scss";
 import { Link } from "react-router-dom";
+import "../scss/layout/header.scss";
 
 
 const Header = () => {
     return (
         <>
-        <header className="navbar">
+        <header className="navbar fixed-top">
             <div className="container">
                 <span className="navbar-text">
                 Kreatif Kuliner
                 </span>
                 <div className="auth-list">
-                    <Link to="/register" className="nav-link">Get Started</Link>
-                    <Link to="/login" className="nav-link">Login</Link>
+                    <Link to="/register" className="btn-signup">Sign Up</Link>
+                    <Link to="/login" className="btn-signin">Sign In</Link>
                 </div>
             </div>
         </header>
@@ -23,7 +23,7 @@ const Header = () => {
                 <div className="carousel-item active">
                     <div className="container hero">
                         <div className="header-tagline">
-                            <h1>Selamat Datang di Kreatifkuliner</h1>
+                            <h1>Selamat Datang di Kreatif kuliner</h1>
                             <p>Tempat sumber inspirasi terbaik untuk segala jenis resep dan panduan memasak kreatif!</p>
                         </div>
                     </div>
