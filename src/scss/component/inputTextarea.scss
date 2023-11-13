@@ -4,7 +4,7 @@ $large_screen: 992px;
 $larger_screen: 1200px;
 
 $colorFocusInput: #f2b724;
-$generalFontSize: 3.6vw;
+$generalFontSize: 4vw;
 @media screen and (max-width: $small_screen) {
     .input-textarea {
         textarea {
@@ -21,7 +21,7 @@ $generalFontSize: 3.6vw;
     }
 }
 
-$generalFontSize_SmallTab: 2.6vw;
+$generalFontSize_SmallTab: 3vw;
 @media screen and (min-width: $small_screen) {
     .input-textarea {
         textarea {
@@ -38,7 +38,7 @@ $generalFontSize_SmallTab: 2.6vw;
     }
 }
 
-$generalFontSize_medium: 2.5vw;
+$generalFontSize_medium: 2.7vw;
 @media screen and (min-width: $medium_screen) {
     .input-textarea {
         textarea {

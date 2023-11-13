@@ -1,17 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { DateFormat } from "../middleware/DateFormat";
 import "../scss/component/firstcard.scss"
 const FirstCard = (props) => {
     const { className, alt, image, title, date, description, id, handleDelete } = props;
 
-    // Format Date 
-    const dateObject = new Date(date);
-    const options = {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-    };
-    const formattedDate = dateObject.toLocaleString('en-US', options);
+    const formattedDate = DateFormat(date);
 
     return (
         <div className={`card ${className}`}>

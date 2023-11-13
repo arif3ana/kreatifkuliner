@@ -7,6 +7,8 @@ $colorText: whitesmoke;
 $colorBorderBottom: #f2b724;
 $colorHoverText: #c37918;
 $colorBg: black;
+
+$sizeLink: 5vw;
 @media screen and (max-width: $small_screen) {
     .nav {
         border-bottom: 3px  solid $colorBorderBottom;
@@ -19,7 +21,7 @@ $colorBg: black;
             gap: 4vw;
             padding-top: 10px;
             padding-bottom: 10px;
-            font-size: 4vw;
+            font-size: $sizeLink;
             width: 100%;
             .link {
                 color: $colorText;
@@ -37,6 +39,7 @@ $colorBg: black;
     }
 }
 
+$sizeLink_smallTab: 3.5vw;
 @media screen and (min-width: $small_screen) {
     .nav {
         border-bottom: 3px  solid $colorBorderBottom;
@@ -49,7 +52,7 @@ $colorBg: black;
             gap: 4vw;
             padding-top: 10px;
             padding-bottom: 10px;
-            font-size: 3.2vw;
+            font-size: $sizeLink_smallTab;
             width: 100%;
             .link {
                 color: $colorText;
@@ -67,6 +70,7 @@ $colorBg: black;
     }
 }
 
+$sizeLink_medium: 2.6w;
 @media screen and (min-width: $medium_screen) {
     .nav {
         border-bottom: 3px  solid $colorBorderBottom;
@@ -79,7 +83,7 @@ $colorBg: black;
             gap: 4vw;
             padding-top: 10px;
             padding-bottom: 10px;
-            font-size: 2.8vw;
+            font-size: $sizeLink_medium;
             width: 100%;
             .link {
                 color: $colorText;
@@ -97,6 +101,7 @@ $colorBg: black;
     }
 }
 
+$sizeLink_large: 2vw;
 @media screen and (min-width: $large_screen) {
     .nav {
         border-bottom: 3px  solid $colorBorderBottom;
@@ -109,7 +114,7 @@ $colorBg: black;
             gap: 4vw;
             padding-top: 10px;
             padding-bottom: 10px;
-            font-size: 1.9vw;
+            font-size: $sizeLink_large;
             width: 100%;
             .link {
                 color: $colorText;
@@ -127,6 +132,7 @@ $colorBg: black;
     }
 }
 
+$sizeLink_larger: 1.9vw;
 @media screen and (min-width: $larger_screen) {
     .nav {
         border-bottom: 3px  solid $colorBorderBottom;
@@ -139,7 +145,7 @@ $colorBg: black;
             gap: 4vw;
             padding-top: 10px;
             padding-bottom: 10px;
-            font-size: 2vw;
+            font-size: $sizeLink_larger;
             width: 100%;
             .link {
                 color: $colorText;

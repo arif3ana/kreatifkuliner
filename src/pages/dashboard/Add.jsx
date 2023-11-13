@@ -245,7 +245,7 @@ const Add = () => {
                                     <InputTextarea 
                                     divClassName={'intruct-desc'}
                                     name={'instructions[]'}
-                                    placeholder={'Instructions'}
+                                    placeholder={`Instructions Step ${index + 1}`}
                                     row={2}
                                     value={instruc.step}
                                     handleChange={(e) => onHandleChange(e, index, 'step')}

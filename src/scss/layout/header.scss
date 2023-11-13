@@ -19,7 +19,7 @@ $large_screen: 992px;
         padding: 10px;
         .navbar-text {
             font-family: $fontJudul;
-            font-size: 4.5vw;
+            font-size: 5.5vw;
             color: $colorTextJudul;
         }
         .auth-list {
@@ -27,7 +27,7 @@ $large_screen: 992px;
             display: flex;
             justify-content: end;
             gap: 2vw;
-            font-size: 3.3vw;
+            font-size: 4vw;
             .btn-signup {
                 border: 1px solid $colorTextJudul;
                 padding: 5px 10px 5px 10px;
@@ -42,6 +42,7 @@ $large_screen: 992px;
             }
             .btn-signin {
                 padding: 5px 10px 5px 10px;
+                border: 1px solid $colorTextJudul;
                 background-color: $colorTextJudul;
                 border-radius: 10px;
                 text-decoration: none;
@@ -49,6 +50,7 @@ $large_screen: 992px;
                 transition: 0.3s;
                 &:hover {
                     background-color: #af8418;
+                    border-color: #af8418;
                 }
             }
         }
@@ -80,7 +82,7 @@ $large_screen: 992px;
                         }
                         p {
                             font-family: inherit;
-                            font-size: 3.6vw;
+                            font-size: 4vw;
                             color: whitesmoke;
                         }
                     }

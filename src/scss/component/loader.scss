@@ -1,3 +1,6 @@
+$colorLoaderGenap: #f2b724;
+$colorLoaderGanjil: #b6891b;
+
 .loader {
     display: inline-block;
     position: relative;
@@ -14,22 +17,22 @@
   }
   .loader div:nth-child(1) {
     left: 8px;
-    background: #4395d1;
+    background: $colorLoaderGanjil;
     animation: loader1 0.6s infinite;
   }
   .loader div:nth-child(2) {
     left: 8px;
-    background: #39bbec;
+    background: $colorLoaderGenap;
     animation: loader2 0.6s infinite;
   }
   .loader div:nth-child(3) {
     left: 32px;
-    background: #4395d1;
+    background: $colorLoaderGanjil;
     animation: loader2 0.6s infinite;
   }
   .loader div:nth-child(4) {
     left: 56px;
-    background: #39bbec;
+    background: $colorLoaderGenap;
     animation: loader3 0.6s infinite;
   }
   @keyframes loader1 {

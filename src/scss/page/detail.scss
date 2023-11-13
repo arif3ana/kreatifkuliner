@@ -1,11 +1,390 @@
+$small_screen: 600px;
+$medium_screen: 768px;
+$large_screen: 992px;
+$larger_screen: 1200px;
 
-.detail-recipe {
-    margin-bottom: 15vh;
-    margin-top: 1vh;
-    .img-detail {
-        width: 100%;
-        aspect-ratio:  5/2;
-        object-fit: cover;
-        border-radius: 2vw;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+$fontJudul: 'Montserrat', sans-serif;
+$colorTextJudul: #f2b724;
+$colorFocusInput: #f2b724;
+
+// sizing for small device
+$sizeJudul: 6vw;
+$sizeSubJudul: 5.5vw;
+$generalFontSize: 4vw;
+@media screen and (max-width: $small_screen) {
+    .loader-box-recipe{
+        position: absolute;
+        z-index: 99;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .img-detail {
+            width: 100%;
+            aspect-ratio:  6/4;
+            object-fit: cover;
+            border-radius: 1vw;
+            margin-bottom: 5vw;
+        }
+        .title-blog {
+            font-family: $fontJudul;
+            font-size: $sizeJudul;
+        }
+        .content-info {
+            font-size: $generalFontSize;
+        }
+        .content-blog {
+            font-size: $generalFontSize;
+            text-align: justify;
+            line-height: 150%;
+        }
+        .second-title {
+            font-family: $sizeSubJudul;
+            font-size: $sizeJudul;
+        }
+        .list-ingredients {
+            .list {
+                font-size: $generalFontSize;
+                .bahan {
+                    line-height: 100%;
+                }
+            }
+            margin-bottom: 10vw;
+        }
+        .third-title {
+            font-family: $sizeSubJudul;
+            font-size: $sizeJudul;
+            margin-bottom: 5vw;
+        }
+        .list-instruc {
+            .step {
+                .img-detail-step {
+                    width: 100%;
+                    aspect-ratio:  8/4;
+                    object-fit: cover;
+                    border-radius: 1vw;
+                    margin-bottom: 3vw;
+                }
+                .step-instruc {
+                    font-size: $generalFontSize;
+                    text-align: justify;
+                    line-height: 150%;
+                }
+                margin-bottom: 10vw;
+            }
+        }
+    }
+}
+
+$sizeJudul_smallTab: 5vw;
+$sizeSubJudul_smallTab: 4.5vw;
+$generalFontSize_smallTab: 3vw;
+@media screen and (min-width: $small_screen) {
+    .loader-box-recipe{
+        position: absolute;
+        z-index: 99;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .img-detail {
+            width: 100%;
+            aspect-ratio:  6/4;
+            object-fit: cover;
+            border-radius: 1vw;
+            margin-bottom: 5vw;
+        }
+        .title-blog {
+            font-family: $fontJudul;
+            font-size: $sizeJudul_smallTab;
+        }
+        .content-info {
+            font-size: $generalFontSize_smallTab;
+        }
+        .content-blog {
+            font-size: $generalFontSize_smallTab;
+            text-align: justify;
+            line-height: 150%;
+        }
+        .second-title {
+            font-family: $sizeSubJudul_smallTab;
+            font-size: $sizeJudul_smallTab;
+        }
+        .list-ingredients {
+            .list {
+                font-size: $generalFontSize_smallTab;
+                .bahan {
+                    line-height: 100%;
+                }
+            }
+            margin-bottom: 10vw;
+        }
+        .third-title {
+            font-family: $sizeSubJudul_smallTab;
+            font-size: $sizeJudul_smallTab;
+            margin-bottom: 5vw;
+        }
+        .list-instruc {
+            .step {
+                .img-detail-step {
+                    width: 100%;
+                    aspect-ratio:  8/4;
+                    object-fit: cover;
+                    border-radius: 1vw;
+                    margin-bottom: 3vw;
+                }
+                .step-instruc {
+                    font-size: $generalFontSize_smallTab;
+                    text-align: justify;
+                    line-height: 150%;
+                }
+                margin-bottom: 10vw;
+            }
+        }
+    }
+}
+
+$sizeJudul_medium: 4vw;
+$sizeSubJudul_medium: 3.5vw;
+$generalFontSize_medium: 2.7vw;
+@media screen and (min-width: $medium_screen) {
+    .loader-box-recipe{
+        position: absolute;
+        z-index: 99;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .img-detail {
+            width: 100%;
+            aspect-ratio:  6/4;
+            object-fit: cover;
+            border-radius: 1vw;
+            margin-bottom: 5vw;
+        }
+        .title-blog {
+            font-family: $fontJudul;
+            font-size: $sizeJudul_medium;
+        }
+        .content-info {
+            font-size: $generalFontSize_medium;
+        }
+        .content-blog {
+            font-size: $generalFontSize_medium;
+            text-align: justify;
+            line-height: 150%;
+        }
+        .second-title {
+            font-family: $sizeSubJudul_medium;
+            font-size: $sizeJudul_medium;
+        }
+        .list-ingredients {
+            .list {
+                font-size: $generalFontSize_medium;
+                .bahan {
+                    line-height: 100%;
+                }
+            }
+            margin-bottom: 10vw;
+        }
+        .third-title {
+            font-family: $sizeSubJudul_medium;
+            font-size: $sizeJudul_medium;
+            margin-bottom: 5vw;
+        }
+        .list-instruc {
+            .step {
+                .img-detail-step {
+                    width: 100%;
+                    aspect-ratio:  8/4;
+                    object-fit: cover;
+                    border-radius: 1vw;
+                    margin-bottom: 3vw;
+                }
+                .step-instruc {
+                    font-size: $generalFontSize_medium;
+                    text-align: justify;
+                    line-height: 150%;
+                }
+                margin-bottom: 10vw;
+            }
+        }
+    }
+}
+
+$sizeJudul_large: 4vw;
+$sizeSubJudul_large: 3vw;
+$generalFontSize_large: 2vw;
+@media screen and (min-width: $large_screen) {
+    .loader-box-recipe{
+        position: absolute;
+        z-index: 99;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .img-detail {
+            width: 100%;
+            aspect-ratio:  6/4;
+            object-fit: cover;
+            border-radius: 1vw;
+            margin-bottom: 5vw;
+        }
+        .title-blog {
+            font-family: $fontJudul;
+            font-size: $sizeJudul_large;
+        }
+        .content-info {
+            font-size: $generalFontSize_large;
+        }
+        .content-blog {
+            font-size: $generalFontSize_large;
+            text-align: justify;
+            line-height: 150%;
+        }
+        .second-title {
+            font-family: $sizeSubJudul_large;
+            font-size: $sizeJudul_large;
+        }
+        .list-ingredients {
+            .list {
+                font-size: $generalFontSize_large;
+                .bahan {
+                    line-height: 100%;
+                }
+            }
+            margin-bottom: 10vw;
+        }
+        .third-title {
+            font-family: $sizeSubJudul_large;
+            font-size: $sizeJudul_large;
+            margin-bottom: 5vw;
+        }
+        .list-instruc {
+            .step {
+                .img-detail-step {
+                    width: 100%;
+                    aspect-ratio:  8/4;
+                    object-fit: cover;
+                    border-radius: 1vw;
+                    margin-bottom: 3vw;
+                }
+                .step-instruc {
+                    font-size: $generalFontSize_large;
+                    text-align: justify;
+                    line-height: 150%;
+                }
+                margin-bottom: 10vw;
+            }
+        }
+    }
+}
+
+$sizeJudul_larger: 3.8vw;
+$sizeSubJudul_larger: 3.3vw;
+$generalFontSize_larger: 2vw;
+@media screen and (min-width: $larger_screen) {
+    .loader-box-recipe{
+        position: absolute;
+        z-index: 99;
+        background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .detail-recipe {
+        margin-bottom: 15vh;
+        margin-top: 1vh;
+        .img-detail {
+            width: 100%;
+            aspect-ratio:  6/4;
+            object-fit: cover;
+            border-radius: 1vw;
+            margin-bottom: 5vw;
+        }
+        .title-blog {
+            font-family: $fontJudul;
+            font-size: $sizeJudul_larger;
+        }
+        .content-info {
+            font-size: $generalFontSize_larger;
+        }
+        .content-blog {
+            font-size: $generalFontSize_larger;
+            text-align: justify;
+            line-height: 150%;
+        }
+        .second-title {
+            font-family: $sizeSubJudul_larger;
+            font-size: $sizeJudul_larger;
+        }
+        .list-ingredients {
+            .list {
+                font-size: $generalFontSize_larger;
+                .bahan {
+                    line-height: 100%;
+                }
+            }
+            margin-bottom: 10vw;
+        }
+        .third-title {
+            font-family: $sizeSubJudul_larger;
+            font-size: $sizeJudul_larger;
+            margin-bottom: 5vw;
+        }
+        .list-instruc {
+            .step {
+                .img-detail-step {
+                    width: 100%;
+                    aspect-ratio:  8/4;
+                    object-fit: cover;
+                    border-radius: 1vw;
+                    margin-bottom: 3vw;
+                }
+                .step-instruc {
+                    font-size: $generalFontSize_larger;
+                    text-align: justify;
+                    line-height: 150%;
+                }
+                margin-bottom: 10vw;
+            }
+        }
     }
 }

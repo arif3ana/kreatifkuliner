@@ -7,8 +7,8 @@ import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
 import FirstCard from "../../components/firstCard";
 import Loader from "../../components/atom/loader";
-import "../../scss/page/dashboardhome.scss";
 import Input from "../../components/atom/input";
+import "../../scss/page/dashboardhome.scss";
 
 const Home = () => {
     const dispatch = useDispatch();
@@ -55,10 +55,6 @@ const Home = () => {
     return (
         <>
         <Navbar />
-        {/* <div className="container input-group search-form mb-5 mt-3">
-            <input type="text" className="form-control search" placeholder="Search Recipe . . . " aria-label="Username" aria-describedby="basic-addon1" onChange={onSearch} value={searchTerm}/>
-            <span className="input-group-text" id="basic-addon1"><i className="bi bi-search" /></span>
-        </div> */}
         <Input 
         divClassName={'container input-group search-form mb-5 mt-3'}
         className={'search'}

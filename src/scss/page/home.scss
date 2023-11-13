@@ -15,7 +15,7 @@ $colorTextJudul: #f2b724;
                 font-family: $fontJudul;
             }
             p {
-                font-size: 3.6vw;
+                font-size: 4vw;
             }
             margin-bottom: 3vw;
         }
@@ -25,7 +25,7 @@ $colorTextJudul: #f2b724;
             gap: 5vw;
         }
         .btn-explore {
-            font-size: 3.6vw;
+            font-size: 4vw;
             padding: 10px 15px 10px 15px;
             background-color: $colorTextJudul;
             border-radius: 10px;
@@ -47,7 +47,7 @@ $colorTextJudul: #f2b724;
                 font-family: $fontJudul;
             }
             p {
-                font-size: 2.6vw;
+                font-size: 3vw;
             }
             margin-bottom: 3vw;
         }
@@ -57,7 +57,7 @@ $colorTextJudul: #f2b724;
             gap: 5vw;
         }
         .btn-explore {
-            font-size: 2.6vw;
+            font-size: 3vw;
             padding: 15px 20px 15px 20px;
             background-color: $colorTextJudul;
             border-radius: 10px;
@@ -75,11 +75,43 @@ $colorTextJudul: #f2b724;
     .container {
         .title-content {
             h2 {
-                font-size: 4vw;
+                font-size: 3.5vw;
                 font-family: $fontJudul;
             }
             p {
-                font-size: 2.5vw;
+                font-size: 2.7vw;
+            }
+            margin-bottom: 3vw;
+        }
+        .card-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2vw;
+        }
+        .btn-explore {
+            font-size: 2.7vw;
+            padding: 15px 20px 15px 20px;
+            background-color: $colorTextJudul;
+            border-radius: 10px;
+            text-decoration: none;
+            color: black;
+            transition: 0.3s;
+            &:hover {
+                background-color: #af8418;
+            }
+        }
+    } 
+}
+
+@media screen and (min-width: $large_screen) {
+    .container {
+        .title-content {
+            h2 {
+                font-size: 3vw;
+                font-family: $fontJudul;
+            }
+            p {
+                font-size: 2vw;
             }
             margin-bottom: 3vw;
         }
@@ -103,47 +135,15 @@ $colorTextJudul: #f2b724;
     } 
 }
 
-@media screen and (min-width: $large_screen) {
-    .container {
-        .title-content {
-            h2 {
-                font-size: 2.9vw;
-                font-family: $fontJudul;
-            }
-            p {
-                font-size: 1.8vw;
-            }
-            margin-bottom: 3vw;
-        }
-        .card-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2vw;
-        }
-        .btn-explore {
-            font-size: 1.8vw;
-            padding: 15px 20px 15px 20px;
-            background-color: $colorTextJudul;
-            border-radius: 10px;
-            text-decoration: none;
-            color: black;
-            transition: 0.3s;
-            &:hover {
-                background-color: #af8418;
-            }
-        }
-    } 
-}
-
 @media screen and (min-width: $larger_screen) {
     .container {
         .title-content {
             h2 {
-                font-size: 2.9vw;
+                font-size: 3vw;
                 font-family: $fontJudul;
             }
             p {
-                font-size: 1.8vw;
+                font-size: 1.9vw;
             }
             margin-bottom: 3vw;
         }
@@ -153,7 +153,7 @@ $colorTextJudul: #f2b724;
             gap: 1.5vw;
         }
         .btn-explore {
-            font-size: 1.4vw;
+            font-size: 1.9vw;
             padding: 15px 20px 15px 20px;
             background-color: $colorTextJudul;
             border-radius: 10px;

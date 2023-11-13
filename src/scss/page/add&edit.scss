@@ -161,6 +161,11 @@ $generalFontSize: 3.6vw;
                 background-color: #c37918;
             }
         }
+        .alert {
+            position: fixed;
+            top: 7%;
+            right: 1%;
+        }
         .loader-box{
             position: fixed;
             z-index: 99;
@@ -327,6 +332,11 @@ $generalFontSize_SmallTab: 2.6vw;
             &:hover {
                 background-color: #c37918;
             }
+        }
+        .alert {
+            position: fixed;
+            top: 7%;
+            right: 1%;
         }
         .loader-box{
             position: fixed;
@@ -497,6 +507,11 @@ $generalFontSize_medium: 2.5vw;
                 background-color: #c37918;
             }
         }
+        .alert {
+            position: fixed;
+            top: 7%;
+            right: 1%;
+        }
         .loader-box{
             position: fixed;
             z-index: 99;
@@ -662,6 +677,11 @@ $generalFontSize_large: 1.6vw;
             &:hover {
                 background-color: #c37918;
             }
+        }
+        .alert {
+            position: fixed;
+            top: 7%;
+            right: 1%;
         }
         .loader-box{
             position: fixed;
@@ -829,6 +849,11 @@ $generalFontSize_larger: 1.6vw;
             &:hover {
                 background-color: #c37918;
             }
+        }
+        .alert {
+            position: fixed;
+            top: 7%;
+            right: 1%;
         }
         .loader-box{
             position: fixed;

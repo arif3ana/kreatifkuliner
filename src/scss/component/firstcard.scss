@@ -3,7 +3,8 @@ $medium_screen: 768px;
 $large_screen: 992px;
 
 $colorBtnText: #c37918;
-
+$sizeSubJudul: 5.5vw;
+$generalFontSize: 4vw;
 @media screen and (max-width: $small_screen) {
     .card {
         .card-image {
@@ -12,14 +13,14 @@ $colorBtnText: #c37918;
         }
         .card-body {
             .card-title {
-                font-size: 4.6vw;
+                font-size: $sizeSubJudul;
             }
             .card-text {
-                font-size: 3.6vw;
+                font-size: $generalFontSize;
             }
             .card-btn {
                 .btn {
-                    font-size: 3.6vw;
+                    font-size: $generalFontSize;
                     color: $colorBtnText;
                     text-decoration: none;
                     font-weight: bold;
@@ -41,6 +42,8 @@ $colorBtnText: #c37918;
     }
 }
 
+$sizeSubJudul_smallTab: 4.5vw;
+$generalFontSize_smallTab: 3vw;
 @media screen and (min-width: $small_screen) {
     .card {
         .card-image {
@@ -49,14 +52,14 @@ $colorBtnText: #c37918;
         }
         .card-body {
             .card-title {
-                font-size: 3.6vw;
+                font-size: $sizeSubJudul_smallTab;
             }
             .card-text {
-                font-size: 2.6vw;
+                font-size: $generalFontSize_smallTab;
             }
             .card-btn {
                 .btn {
-                    font-size: 2.6vw;
+                    font-size: $generalFontSize_smallTab;
                     color: $colorBtnText;
                     text-decoration: none;
                     font-weight: bold;
@@ -78,6 +81,8 @@ $colorBtnText: #c37918;
     }
 }
 
+$sizeSubJudul_medium: 3.5vw;
+$generalFontSize_medium: 2.7vw;
 @media screen and (min-width: $medium_screen) {
     .card {
         .card-image {
@@ -86,14 +91,14 @@ $colorBtnText: #c37918;
         }
         .card-body {
             .card-title {
-                font-size: 3vw;
+                font-size: $sizeSubJudul_medium;
             }
             .card-text {
-                font-size: 2.5vw;
+                font-size: $generalFontSize_medium;
             }
             .card-btn {
                 .btn {
-                    font-size: 2.5vw;
+                    font-size: $generalFontSize_medium;
                     color: $colorBtnText;
                     text-decoration: none;
                     font-weight: bold;
@@ -115,6 +120,9 @@ $colorBtnText: #c37918;
     }
 }
 
+
+$sizeSubJudul_large: 3vw;
+$generalFontSize_large: 2vw;
 @media screen and (min-width: $large_screen) {
     .card {
         .card-image {
@@ -123,14 +131,14 @@ $colorBtnText: #c37918;
         }
         .card-body {
             .card-title {
-                font-size: 2.3vw;
+                font-size: $sizeSubJudul_large;
             }
             .card-text {
-                font-size: 1.8vw;
+                font-size: $generalFontSize_large;
             }
             .card-btn {
                 .btn {
-                    font-size: 1.8vw;
+                    font-size: $generalFontSize_large;
                     color: $colorBtnText;
                     text-decoration: none;
                     font-weight: bold;
