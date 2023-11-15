@@ -9,19 +9,26 @@ import  Alert from '../../components/atom/alert';
 import "../../scss/page/login.scss";
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    // handle input value
     const onHandleChange = (e) => {
-        if(e.target.name == "email") {
+        if(e.target.name === "email") {
             setEmail(e.target.value);
         }
-        if (e.target.name == "password") {
+        if (e.target.name === "password") {
             setPassword(e.target.value);
         }
     }
+
+    // notification handle
+    const {loginData, err, isLoading} = useSelector((state) => state.login);
+    const [error, setError] = useState('');
+    const [message, setMessage] = useState();
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -30,28 +37,40 @@ const Login = () => {
             "email": email,
             "password": password
         }
-        await dispatch(userLogin(reqData))
+        await dispatch(userLogin(reqData));
+
     }
 
-    const {loginData, err, isLoading} = useSelector((state) => state.login);
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
-
+    // set notification state
     useEffect(() => {
+        setLoading(isLoading);
+
         if (err) {
             setError(err);
         }
 
         setMessage(loginData.message);
-        if (message === "login Success!!") {
-            localStorage.setItem('USER', JSON.stringify(loginData.data));
-            setTimeout(() => navigate('/dashboard'), 1000);
+    }, [loginData, err, isLoading]);
+    
+    if (message) {
+        try {
+            localStorage.setItem('USER', JSON.stringify(loginData.data)); // menyimpan data login di localStorage
+            setTimeout(() => navigate('/dashboard'), 500);
+        } catch (error) {
+            console.log(error);
+            setError('access denied!');
         }
-    }, [handleSubmit])
+    }
+
+    // clear error dan message
+    useEffect(() => {
+        setError(null);
+        setMessage(null);
+    }, [])
 
     return (
         <div className="login">
-        {isLoading && (<div className="loader-box"><Loader /></div>)}
+        {loading && (<div className="loader-box"><Loader /></div>)}
         <div className="form-login">
             {
                 error && (
@@ -62,7 +81,7 @@ const Login = () => {
                 )
             }
             <h2 className="text-center">Sign In</h2>
-            <form onSubmit={handleSubmit} className="mb-5">
+            <form onSubmit={(e) => handleSubmit(e)} className="mb-5">
                 <Input 
                 divClassName="mb-3 input"
                 type="email"

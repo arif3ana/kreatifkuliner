@@ -159,6 +159,9 @@ const Edit = () => {
         } catch (error) {
             setErrorMsg(error.response.data.data);
             setLoading(false);
+            setTimeout(() => {
+                setErrorMsg(null);
+            }, 3000);
         }
     }
 

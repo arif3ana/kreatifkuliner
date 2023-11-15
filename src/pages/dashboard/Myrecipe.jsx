@@ -15,9 +15,9 @@ const Myrecipe = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     useEffect(() => {
+        const {userId} = JSON.parse(localStorage.getItem('USER'));
         const access = Cookies.get('accessToken');
         const refresh = Cookies.get('refreshToken');
-        const {userId} = JSON.parse(localStorage.getItem('USER'));
 
         // pengecekan accessToken dan refreshToken
         if (!access || !refresh) {
@@ -25,14 +25,14 @@ const Myrecipe = () => {
             Cookies.remove('accessToken')
         } else {
             setTimeout(() => {
-                dispatch(recipeContent({userId}))
+                dispatch(recipeContent(userId))
             }, 500)
         }
         
         !refresh ? null : Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
     }, [])
 
-    const { myData, isLoading } = useSelector((state) => state.myrecipe);
+    const { myData, isLoading, error } = useSelector((state) => state.myrecipe);
     const [data, setData] = useState(myData);
 
     useEffect(() => {
@@ -62,7 +62,9 @@ const Myrecipe = () => {
         <Navbar />
         {isLoading && (<div className="loader-box"><Loader /></div>)}
             <div className="container card-recipe">
-                {!data.msg ? data.map((recipe) => (
+
+                {!error ? data.map((recipe) => 
+                (
                     <FirstCard 
                     className="recipe-content"
                     key={recipe._id}
@@ -73,7 +75,8 @@ const Myrecipe = () => {
                     date={recipe.createdAt}
                     id={recipe._id} 
                     handleDelete={() => onDelete(recipe._id)} />
-                )) : (<p className="text-center text-body-secondary">{data.msg}</p>) }
+                )
+                ) : (<p className="text-center text-body-secondary mt-5">{error}</p>) }
                 <p className="text-body-secondary">jumlah Post: {data.length}</p>
             </div>
         <SecondFooter />

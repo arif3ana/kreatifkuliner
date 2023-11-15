@@ -29,8 +29,7 @@ const Home = () => {
                 dispatch(homeContent({access}))
             }, 500);
         }
-        
-
+    
         const accessToken = access ? access : loginData.accessToken;
         !refresh ? null : Cookies.set('accessToken', accessToken, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
 

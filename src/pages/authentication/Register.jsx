@@ -16,18 +16,17 @@ const Register = () => {
     const dispatch = useDispatch();
 
     const onHandleChange = (e) => {
-        if (e.target.name == "username") {
+        if (e.target.name === "username") {
             setUsername(e.target.value);
         }
-        if (e.target.name == "email") {
+        if (e.target.name === "email") {
             setEmail(e.target.value);
         }
-        if (e.target.name == "password") {
+        if (e.target.name === "password") {
             setPassword(e.target.value);
         }
     }
 
-    // menggunakan use Effec untuk mengambil data di useSelector
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = {
@@ -44,7 +43,7 @@ const Register = () => {
     const [error, setError] = useState('');
 
     useEffect(() => {
-        if (err != null) {
+        if (err !== null) {
             if ('username' in err) {
                 setError(`Username sudah digunakan!!`)
             }
@@ -57,15 +56,21 @@ const Register = () => {
                 })
             }
         }
-    }, [handleSubmit])
+    }, [err])
 
 
     useEffect(() => {
         setMessage(userData);
-        if (message === "Register Success!!") {
-            setTimeout(() => navigate(`/login`), 1500);
-        }
-    }, [handleSubmit]);
+    }, [userData]);
+    
+    if (message === "Register Success!!") {
+        setTimeout(() => navigate(`/login`), 1000);
+    }
+
+    useEffect(() => {
+        setError(null);
+        setMessage(null);
+    }, []);
 
     return (
     <>

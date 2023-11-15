@@ -8,13 +8,13 @@ import "../scss/component/secondfooter.scss";
 const SecondFooter = () => {
     const navigate = useNavigate()
 
-    const handleClick = async () => {
-        await axios.delete("http://localhost:3000/v1/auth/logout", {
+    const handleClick = () => {
+        axios.delete("http://localhost:3000/v1/auth/logout", {
             withCredentials: true
         })
         .then((response) => {
             Cookies.remove('refreshToken', {path: '/dashboard'})
-            localStorage.removeItem("USER")
+            localStorage.removeItem("USER");
             navigate('/');
         })
         .catch((error) => {

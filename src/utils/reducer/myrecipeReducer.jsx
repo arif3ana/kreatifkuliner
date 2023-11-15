@@ -3,14 +3,14 @@ import axios from "axios";
 
 export const recipeContent = createAsyncThunk(
     'myrecipe/recipeContent',
-    async ({thunkAPI, user}) => {
-        return await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/?user=${user}`, {
-            withCredentials: true
-        }).then((response) => {
-            return response.data
-        }).catch((err) => {
-            return err.response
-        })
+    async (user, {rejectWithValue}) => {
+        try {
+            const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/author/${user}`, { withCredentials: true });
+            const data = await res.data;
+            return data
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
     }
 )
 
@@ -33,6 +33,7 @@ const myrecipeReducer = createSlice({
     name: 'myrecipe',
     initialState:{
         myData: [],
+        error: null,
         isLoading: false
     },
     reducers: {},
@@ -44,6 +45,12 @@ const myrecipeReducer = createSlice({
             state.myData = action.payload.data;
             state.isLoading = false;
         });
+        builder.addCase(recipeContent.rejected, (state, action) => {
+            state.error = action.payload.msg;
+            state.isLoading = false;
+        })
+
+
         builder.addCase(recipeDelete.pending, (state) => {
             state.isLoading = true;
         });

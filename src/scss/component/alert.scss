@@ -36,7 +36,7 @@ $generalFontSize_medium: 2.7vw;
     }  
 }
 
-$generalFontSize_large: 2.3vw;
+$generalFontSize_large: 2vw;
 @media screen and (min-width: $large_screen) {
     .alert {
         position: sticky;
@@ -46,7 +46,7 @@ $generalFontSize_large: 2.3vw;
     }  
 }
 
-$generalFontSize_larger: 2vw;
+$generalFontSize_larger: 1.9vw;
 @media screen and (min-width: $larger_screen) {
     .alert {
         position: sticky;

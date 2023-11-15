@@ -11,7 +11,7 @@ import '../../scss/page/add&edit.scss';
 const Add = () => {
     const [imagePreview, setImagePreview] = useState(null);
     const [message, setMessage] = useState('');
-    const [errorMsg, setErrorMsg] = useState();
+    const [errorMsg, setErrorMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     // state untuk menghandle form
     const [formState, setFormState] = useState({
@@ -132,7 +132,10 @@ const Add = () => {
         })
         formState.instructions.forEach((instruc, index) => {
             formData.append(`instructions[${index}][step]`, instruc.step);
-            if(instruc.img) {
+            if (instruc.img === null) {
+                formData.append(`instructions[${index}][img]`, null);
+            }
+            if(typeof instruc.img === 'object') {
                 formData.append(`img`, instruc.img);
             }
         })
@@ -151,6 +154,9 @@ const Add = () => {
         } catch (error) {
             setErrorMsg(error.response.data.data);
             setIsLoading(false)
+            setTimeout(() => {
+                setErrorMsg(null);
+            }, 3000);
         }
     }
     // untuk memanggil sweetalert success
