@@ -214,7 +214,7 @@ const Add = () => {
                     </div>
 
                     <div className="second-post">
-                        <h2 className="mb-4">02 ~ Food Ingredient & Instruction</h2>
+                        <h2 className="mb-4">02 ~ Food Ingredients & Serving Instructions</h2>
                         <div className="input-recipe">
                             <div className="ingredients">
                                 <h3 className="mb-4">~ Ingredients</h3>
@@ -240,7 +240,7 @@ const Add = () => {
                             </div>
 
                             <div className="instructions">
-                                <h3 className="mb-4">~ Instructions</h3>
+                                <h3 className="mb-4">~ Serving Instructions</h3>
                                 <ol>
                                     {formState.instructions.map((instruc, index) => (
                                     <li key={index} className="mb-3">

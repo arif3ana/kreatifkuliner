@@ -14,7 +14,7 @@ import Add from "./pages/dashboard/Add";
 import Edit from "./pages/dashboard/Edit";
 function App() {
   const refresh = async () => {
-    await axios.post('http://localhost:3000/v1/auth/refresh', null, {
+    await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/v1/auth/refresh`, null, {
         withCredentials: true,
     }).then((response) => {
         const access = response.headers.authorization;

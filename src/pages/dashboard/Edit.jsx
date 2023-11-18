@@ -241,7 +241,7 @@ const Edit = () => {
 
 
                     <div className="second-post">
-                        <h2 className="mb-4">02 ~ Food Ingredient & Instruction</h2>
+                        <h2 className="mb-4">02 ~ Food Ingredients & Serving Instructions</h2>
                         <div className="input-recipe">
                             <div className="ingredients">
                                 <h3 className="mb-4">~ Ingredients</h3>
@@ -267,7 +267,7 @@ const Edit = () => {
                             </div>
 
                             <div className="instructions">
-                                <h3 className="mb-4">~ Instructions</h3>
+                                <h3 className="mb-4">~ Serving Instructions</h3>
                                 <ol>
                                     {formState.instructions[0] && formState.instructions.map((instruc, index) => (
                                     <li key={index} className="mb-3">
@@ -297,7 +297,7 @@ const Edit = () => {
                         </div>
                     </div>
                     <div className="form-btn mt-3">
-                        <button type="submit" className="btn-submit">Add Recipe</button>
+                        <button type="submit" className="btn-submit">Edit Recipe</button>
                     </div>
                 </form>
             </div>

@@ -9,7 +9,7 @@ const SecondFooter = () => {
     const navigate = useNavigate()
 
     const handleClick = () => {
-        axios.delete("http://localhost:3000/v1/auth/logout", {
+        axios.delete(`${import.meta.env.VITE_APP_BASE_URL}/v1/auth/logout`, {
             withCredentials: true
         })
         .then((response) => {
