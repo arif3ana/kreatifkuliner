@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../../components/Navbar";
 import SecondFooter from "../../components/secondFooter";
@@ -6,6 +6,7 @@ import Input from "../../components/atom/input";
 import InputTextarea from "../../components/atom/inputTextarea";
 import Loader from '../../components/atom/loader';
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 import '../../scss/page/add&edit.scss';
 
 const Add = () => {
@@ -13,6 +14,8 @@ const Add = () => {
     const [message, setMessage] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [otentikasi, setOtentikasi] = useState('');
+
     // state untuk menghandle form
     const [formState, setFormState] = useState({
         name: '',
@@ -48,6 +51,21 @@ const Add = () => {
             title: msg
         })
     }
+
+    // mengotentikasi role user apakah sudah login atau belum
+    useEffect(() => {
+        // pengecekan accessToken dan refreshToken
+        const access = Cookies.get('accessToken');
+        const refresh = Cookies.get('refreshToken');
+        
+        if (!access || !refresh) {
+            navigate('/')
+            Cookies.remove('accessToken')
+            return false 
+        }
+
+        setOtentikasi(access);
+    }, [])
 
     const handleImage = (e) => {
         e.preventDefault();
@@ -123,6 +141,7 @@ const Add = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+
         const formData = new FormData();
         formData.append('name', formState.name);
         formData.append('description', formState.description);
@@ -144,7 +163,8 @@ const Add = () => {
             const res = await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/add-food`, formData, {
                 withCredentials: true,
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': otentikasi
                 }
             })
             setMessage(res.data.message);

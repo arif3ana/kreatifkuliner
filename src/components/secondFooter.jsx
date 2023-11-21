@@ -7,10 +7,13 @@ import "../scss/component/secondfooter.scss";
 
 const SecondFooter = () => {
     const navigate = useNavigate()
-
+    const access = Cookies.get('accessToken');
     const handleClick = () => {
         axios.delete(`${import.meta.env.VITE_APP_BASE_URL}/v1/auth/logout`, {
-            withCredentials: true
+            withCredentials: true,
+            headers: {
+                'Authorization': access
+            }
         })
         .then((response) => {
             Cookies.remove('refreshToken', {path: '/dashboard'})

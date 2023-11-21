@@ -14,8 +14,13 @@ const DetailRecipe = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    const getData = async () => {
-        const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/${id}`, {withCredentials: true})
+    const getData = async (access) => {
+        const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/${id}`, {
+            withCredentials: true,
+            headers: {
+                'Authorization': access 
+            }
+        })
         const data = await res.data.data;
         setData(data);
         setLoading(false);
@@ -31,7 +36,7 @@ const DetailRecipe = () => {
             navigate('/login')
             Cookies.remove('accessToken')
         } else  {
-            getData();
+            getData(access);
         } 
 
         !refresh ? null : Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});

@@ -55,7 +55,7 @@ const Login = () => {
     if (message) {
         try {
             localStorage.setItem('USER', JSON.stringify(loginData.data)); // menyimpan data login di localStorage
-            setTimeout(() => navigate('/dashboard'), 500);
+            setTimeout(() => navigate('/dashboard'), 1000);
         } catch (error) {
             console.log(error);
             setError('access denied!');

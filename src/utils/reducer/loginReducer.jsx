@@ -8,7 +8,9 @@ export const userLogin = createAsyncThunk(
             const res =  await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/v1/auth/login`,
             reqData, { withCredentials: true, headers: {"Content-Type": "application/json"}})
                 const access = await res.headers.authorization;
-                Cookies.set("accessToken", access, {path: '/', expires: new Date(Date.now() + 5 * 60 * 1000)});
+                const refresh = await res.data.refreshToken;
+                Cookies.set("refreshToken", refresh, {path: '/', expires: 1, sameSite: 'None', secure: true});
+                Cookies.set("accessToken", access, {path: '/', expires: new Date(Date.now() + 5 * 60 * 1000), sameSite: 'None', secure: true});
                 return res.data;
         } catch (error) {
             return rejectWithValue(error.response.data);

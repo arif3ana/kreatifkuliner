@@ -3,14 +3,20 @@ import axios from "axios";
 
 export const homeContent = createAsyncThunk(
     'home/homeContent',
-    async({thunkAPI, accessToken}) => {
-        return await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food`, {
-            withCredentials: true,
-        }).then((response) => {
-            return response.data;
-        }).catch((error) => {
-            return error.response
-        })
+    async(accessToken, {thunkAPI}) => {
+        try {
+            console.log(accessToken);
+            const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': accessToken
+                }
+            });
+            const data = await res.data;
+            return data
+        } catch (error) {
+            return error.response            
+        }
     }
 )
 

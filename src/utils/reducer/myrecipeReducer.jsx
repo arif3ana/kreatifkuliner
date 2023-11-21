@@ -3,9 +3,15 @@ import axios from "axios";
 
 export const recipeContent = createAsyncThunk(
     'myrecipe/recipeContent',
-    async (user, {rejectWithValue}) => {
+    async ({userId, access}, {rejectWithValue}) => {
         try {
-            const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/author/${user}`, { withCredentials: true });
+            console.log("ini myrecepi test" + userId);
+            const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/author/${userId}`, {
+                withCredentials: true,
+                headers: {
+                    'Authorization': access
+                }
+                });
             const data = await res.data;
             return data
         } catch (error) {
@@ -16,10 +22,13 @@ export const recipeContent = createAsyncThunk(
 
 export const recipeDelete = createAsyncThunk(
     'myrecipe/recipeDelete',
-    async ({thunkAPI, id}) => {
+    async ({id, otentikasi}, {thunkAPI}) => {
         try {
             const res = await axios.delete(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/delete/${id}`, {
-                withCredentials: true
+                withCredentials: true,
+                headers: {
+                    'Authorization': otentikasi
+                }
             });
             return res.data;
         } catch (error) {

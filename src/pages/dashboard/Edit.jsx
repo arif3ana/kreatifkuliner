@@ -8,6 +8,7 @@ import Input from "../../components/atom/input";
 import InputTextarea from "../../components/atom/inputTextarea";
 import Swal from "sweetalert2";
 import Loader from "../../components/atom/loader";
+import Cookies from "js-cookie";
 import "../../scss/page/add&edit.scss";
 
 const Edit = () => {
@@ -21,10 +22,9 @@ const Edit = () => {
          image: null,
      });
 
+    // mengambil data sesui id dari parameter
     const { myData } = useSelector((state) => state.myrecipe);
     const dataUpdate = myData.filter((data) => data._id === id);
-
-    // const [newInstruction, setNewInstruction] = useState(Array.from({ length: dataUpdate[0].instructions.length }, () => ({ img: null, step: '' })))
 
     // state untuk menghandle form
     const [formState, setFormState] = useState({
@@ -48,6 +48,16 @@ const Edit = () => {
                 step: instruc.step
             })),
         });
+        
+        // pengecekan accessToken dan refreshToken
+        const access = Cookies.get('accessToken');
+        const refresh = Cookies.get('refreshToken');
+        
+        if (!access || !refresh) {
+            navigate('/')
+            Cookies.remove('accessToken')
+            return false 
+        }
     
         setImagePreview({ strImage: lastData.image });
     }, []);
@@ -127,6 +137,9 @@ const Edit = () => {
     const handleSubmit = async (e, id) => {
         setLoading(true)
         e.preventDefault();
+
+        const access = Cookies.get('accessToken'); // mengambil token akses untuk authorization
+
         const formData = new FormData();
         formData.append('name', formState.name);
         formData.append('description', formState.description);
@@ -148,7 +161,8 @@ const Edit = () => {
             const res = await axios.put(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/update/${id}`, formData, {
                 withCredentials: true,
                 headers: {
-                    'Content-Type': 'multipart/form-data'
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': access
                 }
             })
             setMessage(res.data.message);

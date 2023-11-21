@@ -14,22 +14,24 @@ import "../../scss/page/myrecipe.scss";
 const Myrecipe = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
+    const [otentikasi, setOtentikasi] = useState('');
+
     useEffect(() => {
         const {userId} = JSON.parse(localStorage.getItem('USER'));
         const access = Cookies.get('accessToken');
         const refresh = Cookies.get('refreshToken');
-
         // pengecekan accessToken dan refreshToken
         if (!access || !refresh) {
             navigate('/')
             Cookies.remove('accessToken')
         } else {
             setTimeout(() => {
-                dispatch(recipeContent(userId))
-            }, 500)
+                dispatch(recipeContent({userId, access}))
+            }, 1000)
         }
         
-        !refresh ? null : Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
+        setOtentikasi(access);
+        !refresh ? null : Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000), sameSite: 'None', secure: true});
     }, [])
 
     const { myData, isLoading, error } = useSelector((state) => state.myrecipe);
@@ -50,7 +52,7 @@ const Myrecipe = () => {
             confirmButtonText: "Yes, delete it!"
           }).then(async (result) => {
               if (result.isConfirmed) {
-                await dispatch(recipeDelete({id}));
+                await dispatch(recipeDelete({id, otentikasi}));
                 const result = myData.filter((recipe) => recipe._id !== id);
                 setData(result);
                 }

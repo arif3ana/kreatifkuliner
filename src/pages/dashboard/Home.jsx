@@ -19,19 +19,19 @@ const Home = () => {
     useEffect(() => {
         const access = Cookies.get('accessToken');
         const refresh = Cookies.get('refreshToken');
-
+        console.log(refresh);
         // pengecekan accessToken dan refreshToken
         if (!access || !refresh) {
             navigate('/')
             Cookies.remove('accessToken') 
         } else {
             setTimeout(() => {
-                dispatch(homeContent({access}))
+                dispatch(homeContent(access))
             }, 500);
         }
     
         const accessToken = access ? access : loginData.accessToken;
-        !refresh ? null : Cookies.set('accessToken', accessToken, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
+        !refresh ? null : Cookies.set('accessToken', accessToken, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000), sameSite: 'None', secure: true});
 
     }, [])
 

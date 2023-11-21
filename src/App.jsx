@@ -13,13 +13,12 @@ import DetailRecipe from "./pages/dashboard/DetailRecipe";
 import Add from "./pages/dashboard/Add";
 import Edit from "./pages/dashboard/Edit";
 function App() {
-  const refresh = async () => {
-    await axios.post(`${import.meta.env.VITE_APP_BASE_URL}/v1/auth/refresh`, null, {
+  const refresh = () => {
+    axios.post(`${import.meta.env.VITE_APP_BASE_URL}/v1/auth/refresh`, null, {
         withCredentials: true,
     }).then((response) => {
         const access = response.headers.authorization;
-        Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000)});
-        console.log(response);
+        Cookies.set('accessToken', access, {path: "/", expires: new Date(Date.now() + 5 * 60 * 1000), sameSite: 'None', secure: true});
     }).catch((err) => {
         console.log(err);
     })
