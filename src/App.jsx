@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import axios from "axios";
 import Cookies from "js-cookie";
 import Home from "./pages/landingpage/Home";

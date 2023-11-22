@@ -32,7 +32,7 @@ const Home = () => {
                     key={food._id}
                     alt={food.name} 
                     title={food.name} 
-                    image={`${import.meta.env.VITE_APP_BASE_URL}/${food.image}`} 
+                    image={food.image} 
                     description={food.description}
                     date={food.createdAt} 
                     id={food._id} />

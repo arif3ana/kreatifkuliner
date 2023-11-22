@@ -5,7 +5,6 @@ export const recipeContent = createAsyncThunk(
     'myrecipe/recipeContent',
     async ({userId, access}, {rejectWithValue}) => {
         try {
-            console.log("ini myrecepi test" + userId);
             const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food/author/${userId}`, {
                 withCredentials: true,
                 headers: {

@@ -19,7 +19,6 @@ const Home = () => {
     useEffect(() => {
         const access = Cookies.get('accessToken');
         const refresh = Cookies.get('refreshToken');
-        console.log(refresh);
         // pengecekan accessToken dan refreshToken
         if (!access || !refresh) {
             navigate('/')
@@ -71,7 +70,7 @@ const Home = () => {
                 key={data._id}
                 alt={data.name} 
                 title={data.name} 
-                image={`${import.meta.env.VITE_APP_BASE_URL}/${data.image}`} 
+                image={data.image} 
                 description={data.description}
                 date={data.createdAt}
                 id={data._id} />

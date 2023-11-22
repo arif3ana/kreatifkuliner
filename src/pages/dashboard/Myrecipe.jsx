@@ -72,7 +72,7 @@ const Myrecipe = () => {
                     key={recipe._id}
                     alt={recipe.name} 
                     title={recipe.name} 
-                    image={`${import.meta.env.VITE_APP_BASE_URL}/${recipe.image}`} 
+                    image={recipe.image} 
                     description={recipe.description}
                     date={recipe.createdAt}
                     id={recipe._id} 

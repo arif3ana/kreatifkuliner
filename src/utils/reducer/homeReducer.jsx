@@ -5,7 +5,6 @@ export const homeContent = createAsyncThunk(
     'home/homeContent',
     async(accessToken, {thunkAPI}) => {
         try {
-            console.log(accessToken);
             const res = await axios.get(`${import.meta.env.VITE_APP_BASE_URL}/v1/user/food`, {
                 withCredentials: true,
                 headers: {

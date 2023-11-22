@@ -49,7 +49,7 @@ const DetailRecipe = () => {
         <Navbar />
         {loading && (<div className="loader-box-recipe"><Loader /></div>)}
         <div className="container detail-recipe">
-            <img className="img-detail" src={`${import.meta.env.VITE_APP_BASE_URL}/${data.image}`} alt="image recipe" />
+            <img className="img-detail" src={data.image} alt="image recipe" />
             <h1 className="title-blog">{data.name}</h1>
             <p className="text-body-secondary content-info">By {data.author} | {dateStr}</p>
             <p className="content-blog">{data.description}</p>
@@ -68,7 +68,7 @@ const DetailRecipe = () => {
             <div className="list-instruc">
                 {data.instructions.map((inst, index) => (
                     <div key={index} className="step">
-                        {inst.img ? (<img className="img-detail-step" src={`${import.meta.env.VITE_APP_BASE_URL}/${inst.img}`} alt="image recipe" />) : null}
+                        {inst.img ? (<img className="img-detail-step" src={inst.img} alt="image recipe" />) : null}
                         <p className="step-instruc"><strong>{`Step ${index + 1} `}</strong>{inst.step}</p>
                     </div>
                 ))}

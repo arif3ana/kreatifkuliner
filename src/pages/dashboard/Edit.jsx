@@ -229,7 +229,7 @@ const Edit = () => {
                             <div className="preview">
                                 {imagePreview.image != null ? (
                                     <img src={imagePreview.image} alt="preview image" />
-                                ) : (<img src={`${import.meta.env.VITE_APP_BASE_URL}/${imagePreview.strImage}`} alt="preview image" />)}
+                                ) : (<img src={imagePreview.strImage} alt="preview image" />)}
                             </div>
                         </div>
 
@@ -286,7 +286,7 @@ const Edit = () => {
                                     {formState.instructions[0] && formState.instructions.map((instruc, index) => (
                                     <li key={index} className="mb-3">
                                     {instruc.img === null || typeof instruc.img != 'string' ? null : (
-                                        <img src={`http://localhost:3000/${instruc.img}`} alt="preview image" className="img-preview"/>
+                                        <img src={instruc.img} alt="preview image" className="img-preview"/>
                                     )}
                                     <div className="input-group">
                                         <label className="input-group-text" htmlFor="inputGroupFile02">New Image</label>
