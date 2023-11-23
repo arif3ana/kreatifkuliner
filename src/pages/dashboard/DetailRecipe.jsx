@@ -47,7 +47,7 @@ const DetailRecipe = () => {
     return (
         <>
         <Navbar />
-        {loading && (<div className="loader-box-recipe"><Loader /></div>)}
+        {loading ? (<div className="loader-box-recipe"><Loader /></div>) : (
         <div className="container detail-recipe">
             <img className="img-detail" src={data.image} alt="image recipe" />
             <h1 className="title-blog">{data.name}</h1>
@@ -75,6 +75,7 @@ const DetailRecipe = () => {
             </div>
             )}
         </div>
+        )}
         <SecondFooter />
         </>
     )
