@@ -176,7 +176,7 @@ const Add = () => {
             setIsLoading(false)
             setTimeout(() => {
                 setErrorMsg(null);
-            }, 3000);
+            }, 2000);
         }
     }
     // untuk memanggil sweetalert success
